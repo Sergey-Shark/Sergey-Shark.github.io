@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Информация о партии ТМЦ</title>
+<!-- Сайт для QR-кодов ярлыков ОТК (программа «Управление качеством продукции», db/qr_cloud.py).
+     Ключ — в адресе (из QR-кода на ярлыке). Данные партии лежат зашифрованными (AES-GCM) в ветке data
+     этого репозитория; страница скачивает их и расшифровывает здесь, в браузере. Без ключа прочитать нельзя.
+     На сайте этот файл — index.html и 404.html (любой адрес вида /<ключ> открывает эту страницу). -->
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f1f4f9; color: #1d2433; font: 15px/1.35 "Segoe UI", Roboto, Arial, sans-serif; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 16px 12px 32px; }
+  .app { text-align: center; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #6b7487; margin-bottom: 10px; }
+  .card { background: #fff; border-radius: 14px; box-shadow: 0 1px 6px rgba(20, 40, 80, .08); padding: 16px 18px 20px; margin-bottom: 22px; }
+  h1 { margin: 0 0 14px; text-align: center; color: #1f4e79; font-size: 21px; letter-spacing: .02em; }
+  h2 { margin: 0 0 10px; font-size: 21px; }
+  .info { width: 100%; border-collapse: collapse; }
+  .info th { width: 34%; text-align: left; font-weight: 400; font-size: 12.5px; color: #3c4456; background: #eef1f6; padding: 11px 10px; vertical-align: middle; }
+  .info td { padding: 11px 10px; border-bottom: 1px solid #e3e7ee; overflow-wrap: anywhere; }
+  .info tr:first-child td { border-top: 1px solid #e3e7ee; }
+  .code { color: #1a35a8; text-decoration: underline; }
+  .ok-t { color: #1b7a3a; } .bad-t { color: #b3261e; font-weight: 600; } .wait-t { color: #8a6100; }
+  .res { width: 100%; border-collapse: collapse; background: #fff; font-size: 13px; }
+  .res thead th { background: #dbe9f8; color: #1f4e79; text-align: left; padding: 9px 8px; font-weight: 700; vertical-align: bottom; }
+  .res td { padding: 10px 8px; border-bottom: 1px solid #e3e7ee; vertical-align: middle; }
+  .res tr.sel td { background: #fffbe6; }
+  .pill { display: inline-block; padding: 3px 7px; border-radius: 5px; color: #fff; font-size: 12.5px; line-height: 1.25; }
+  .pill.ok { background: #2e9b55; } .pill.bad { background: #e0675e; } .pill.wait { background: #9aa3b2; }
+  .kind { display: block; font-size: 11px; color: #6b7487; }
+  .lines { width: 100%; border-collapse: collapse; background: #fff; font-size: 13px; margin-top: 14px; }
+  .lines caption { text-align: left; font-weight: 700; padding: 8px 8px 6px; color: #1f4e79; }
+  .lines td { padding: 10px 8px; border-bottom: 1px solid #e3e7ee; vertical-align: middle; }
+  .lines td:first-child { width: 46%; }
+  .lines td.v { width: 108px; text-align: center; }
+  .lines td.v.ok { background: #a7dca0; } .lines td.v.bad { background: #f2a7a2; }
+  .scroll { overflow-x: auto; }
+  .muted { color: #6b7487; font-size: 13px; }
+  .msg { text-align: center; padding: 30px 10px; }
+  .msg .big { font-size: 54px; line-height: 1; margin-bottom: 10px; }
+  .foot { text-align: center; color: #8a92a3; font-size: 12px; margin-top: 18px; }
+  @media (max-width: 520px) {
+    .info th { width: 40%; font-size: 12px; padding: 9px 7px; } .info td { padding: 9px 7px; }
+    .res, .lines { font-size: 12px; } .res td, .res thead th, .lines td { padding: 8px 5px; }
+    .lines td.v { width: 88px; }
+    .res .wide { display: none; }
+  }
+</style>
+</head>
+<body><div class="wrap">
+<div class="app">Управление качеством продукции · ОТК</div>
+<div id="out"><div class="card msg"><div class="big">⏳</div>Загрузка данных партии…</div></div>
+</div>
+<script>
+// Где лежат зашифрованные данные: ветка data этого репозитория, файл d/<первые 24 знака SHA-256 ключа>.txt
+const DATA = "https://raw.githubusercontent.com/Sergey-Shark/Sergey-Shark.github.io/data/d/";
+const VERDICT = { "Соответствует": "Соответствует", "Несоответствует": "Не соответствует" };
+
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const out = (html) => { document.getElementById("out").innerHTML = html; };
+const message = (icon, title, text) => out(`<div class="card msg"><div class="big">${icon}</div><h1>${title}</h1><p class="muted">${text}</p></div>`);
+
+function base32(text) {
+  const abc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
+  let bits = 0, value = 0;
+  const bytes = [];
+  for (const ch of text.toUpperCase().replace(/=+$/, "")) {
+    const i = abc.indexOf(ch);
+    if (i < 0) throw new Error("bad key");
+    value = (value << 5) | i; bits += 5;
+    if (bits >= 8) { bytes.push((value >>> (bits - 8)) & 255); bits -= 8; }
+  }
+  return new Uint8Array(bytes);
+}
+
+function render(d) {
+  if (d.missing) return message("❔", "Партия не найдена", "Позиция заявки на проверку качества удалена.");
+  const info = d.info.map(([label, value]) => `<tr><th>${esc(label)}</th><td>${
+    label === "Код и наименование товара" && d.kis ? `<span class="code">${esc(d.kis)}</span> / ${esc(d.name)}` : esc(value || "—")}</td></tr>`).join("");
+  const il = d.il.map((r) => `<tr><th>Заявка ИЛ</th><td class="${r.cls}-t">${esc(r.text)}</td></tr>`).join("");
+  const anySel = d.results.some((r) => r.selected);
+  const rows = d.results.map((r) => `<tr class="${r.selected ? "sel" : ""}"><td>${esc(r.serial || "—")}<span class="kind">${esc(r.kind)} · ${esc(r.number)}</span></td>
+      <td class="wide">${esc(d.name)}</td><td>${esc(d.arrived)}</td><td class="wide">${esc(d.maker || "—")}</td>
+      <td><span class="pill ${r.cls}">${esc(r.verdict)}</span></td></tr>`).join("");
+  const lines = d.results.filter((r) => r.lines.length && (r.selected || !anySel)).map((r) => `<div class="scroll"><table class="lines">
+      ${d.results.length > 1 ? `<caption>${esc(r.kind)}${r.serial ? `, зав. № ${esc(r.serial)}` : ""} — результат ${esc(r.number)}${r.date ? ` от ${esc(r.date)}` : ""}</caption>` : ""}
+      ${r.lines.map((l) => `<tr><td>${esc(l.name)}</td><td>${esc(l.measured || "—")}</td><td class="v ${l.cls}">${esc(VERDICT[l.conclusion] || l.conclusion || "—")}</td></tr>`).join("")}
+    </table></div>`).join("");
+  const ilTasks = d.il.filter((r) => r.tasks.length).map((r) => `<div class="scroll"><table class="lines">
+      <caption>Заявка ИЛ ${esc(r.text.split(":")[0])}</caption>
+      ${r.tasks.map((t) => `<tr><td>${esc(t.name)}</td><td class="v ${t.cls}">${esc(VERDICT[t.conclusion] || t.conclusion || "—")}</td></tr>`).join("")}
+    </table></div>`).join("");
+  document.title = `Партия ТМЦ — ${d.name || ""}`;
+  out(`<div class="card"><h1>Информация о партии ТМЦ</h1><table class="info">${info}
+      <tr><th>Заявка ОТК</th><td class="${d.otk.cls}-t">${esc(d.otk.text)}</td></tr>${il}</table></div>
+    <h2>Входной контроль материалов</h2>
+    ${d.results.length ? `<div class="scroll"><table class="res"><thead><tr><th>Заводской номер</th><th class="wide">Наименование</th>
+      <th>Дата поступления</th><th class="wide">Производитель</th><th>Заключение</th></tr></thead><tbody>${rows}</tbody></table></div>${lines}`
+      : `<p class="muted">Контроль ещё не проводился — результатов нет.</p>`}
+    ${ilTasks ? `<h2 style="margin-top:24px">Испытания в лаборатории (ИЛ)</h2>${ilTasks}` : ""}
+    <div class="foot">Данные на ${esc(d.at || "")} · Заявка ОТК №${esc(d.req)}</div>`);
+}
+
+async function main() {
+  const key = (location.pathname.split("/").filter(Boolean).pop() || location.hash.slice(1) || "").trim();
+  if (!key) return message("✓", "Связь с сайтом есть", "QR-коды ярлыков будут открываться на этом телефоне. Наведите камеру на QR-код ярлыка.");
+  let raw;
+  try { raw = base32(key); } catch (e) { raw = null; }
+  if (!raw || raw.length !== 16) return message("⚠️", "Неверный QR-код", "Ссылка повреждена — отсканируйте QR-код ярлыка ещё раз.");
+  if (!window.crypto || !crypto.subtle) return message("⚠️", "Браузер не поддерживается", "Откройте ссылку в Chrome или Safari.");
+  const hash = new Uint8Array(await crypto.subtle.digest("SHA-256", raw));
+  const id = [...hash].map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 24);
+  let resp;
+  try { resp = await fetch(`${DATA}${id}.txt?t=${Date.now()}`, { cache: "no-store" }); } catch (e) {
+    return message("📶", "Нет связи", "Проверьте интернет на телефоне и откройте ссылку ещё раз.");
+  }
+  if (!resp.ok) return message("⏳", "Данные ещё не выложены", "Ярлык только что напечатан — данные появятся через 1–5 минут. Откройте ссылку ещё раз чуть позже.");
+  try {
+    const bin = Uint8Array.from(atob((await resp.text()).trim()), (c) => c.charCodeAt(0));
+    const k = await crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["decrypt"]);
+    const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv: bin.slice(0, 12) }, k, bin.slice(12));
+    render(JSON.parse(new TextDecoder().decode(plain)));
+  } catch (e) {
+    message("⚠️", "Не удалось прочитать данные", "QR-код не подходит к данным. Распечатайте ярлык заново.");
+  }
+}
+main();
+</script>
+</body>
+</html>
