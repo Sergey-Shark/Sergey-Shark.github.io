@@ -112,11 +112,18 @@ async function main() {
   if (!window.crypto || !crypto.subtle) return message("⚠️", "Браузер не поддерживается", "Откройте ссылку в Chrome или Safari.");
   const hash = new Uint8Array(await crypto.subtle.digest("SHA-256", raw));
   const id = [...hash].map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 24);
+  // Ярлык только что напечатан — программа выкладывает данные в фоне (до минуты): страница ждёт сама,
+  // повторяя попытку каждые 10 секунд до 5 минут.
   let resp;
-  try { resp = await fetch(`${DATA}${id}.txt?t=${Date.now()}`, { cache: "no-store" }); } catch (e) {
-    return message("📶", "Нет связи", "Проверьте интернет на телефоне и откройте ссылку ещё раз.");
+  for (let tries = 0; ; tries++) {
+    try { resp = await fetch(`${DATA}${id}.txt?t=${Date.now()}`, { cache: "no-store" }); } catch (e) {
+      return message("📶", "Нет связи", "Проверьте интернет на телефоне и откройте ссылку ещё раз.");
+    }
+    if (resp.ok) break;
+    if (tries >= 30) return message("⏳", "Данные ещё не выложены", "Прошло 5 минут, а данных нет. Проверьте в программе: «Справочники» → «Проверить QR-коды с телефона» → «Выкладка данных».");
+    message("⏳", "Данные выкладываются…", `Ярлык только что напечатан — данные появятся в течение минуты. Страница обновится сама (попытка ${tries + 1}).`);
+    await new Promise((ok) => setTimeout(ok, 10000));
   }
-  if (!resp.ok) return message("⏳", "Данные ещё не выложены", "Ярлык только что напечатан — данные появятся через 1–5 минут. Откройте ссылку ещё раз чуть позже.");
   try {
     const bin = Uint8Array.from(atob((await resp.text()).trim()), (c) => c.charCodeAt(0));
     const k = await crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["decrypt"]);
