@@ -104,7 +104,9 @@ function render(d) {
 }
 
 async function main() {
-  const key = (location.pathname.split("/").filter(Boolean).pop() || location.hash.slice(1) || "").trim();
+  // С 10.4 ключ — после «#»: https://sergey-shark.github.io/qr/#<ключ> (страница лежит в папке qr/ сайта).
+  const seg = location.pathname.split("/").filter(Boolean).pop() || "";
+  const key = (location.hash.slice(1) || (/^(qr|index\.html)$/i.test(seg) ? "" : seg)).trim();
   if (!key) return message("✓", "Связь с сайтом есть", "QR-коды ярлыков будут открываться на этом телефоне. Наведите камеру на QR-код ярлыка.");
   let raw;
   try { raw = base32(key); } catch (e) { raw = null; }
