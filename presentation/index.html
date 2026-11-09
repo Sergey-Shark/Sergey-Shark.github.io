@@ -9,16 +9,18 @@
 #stage section *{margin:0}#stage section p,#stage section h1,#stage section h2,#stage section h3{position:relative}
 iframe.emb{position:absolute;border:0;background:transparent;pointer-events:none;color-scheme:normal}
 aside.notes{display:none}body.notes aside.notes{display:block;position:absolute;left:0;right:0;bottom:0;background:#000c;color:#eee;font-size:30px;padding:24px 48px;z-index:9}
-#nav{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);display:flex;align-items:center;gap:18px;padding:12px 18px;border-radius:60px;
+#nav{position:fixed;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:6px 10px;border-radius:40px;
  background:rgba(13,16,24,.82);border:2px solid #313a54;z-index:30;transition:opacity .4s;font-family:Manrope,Arial,sans-serif}
 #nav.hide{opacity:0;pointer-events:none}
-#nav button{width:96px;height:96px;border-radius:50%;border:2px solid #313a54;background:#1d2335;color:#ffd27a;font:800 52px/1 Manrope,Arial;cursor:pointer;display:grid;place-items:center}
-#nav button:active{background:#2a3150}#nav .fs,#nav .nt{font-size:40px}
-#cnt{color:#eef0f6;font:700 38px Manrope,Arial;min-width:150px;text-align:center}
+#nav button{width:46px;height:46px;border-radius:50%;border:1px solid #313a54;background:#1d2335;color:#ffd27a;font:800 26px/1 Manrope,Arial;cursor:pointer;display:grid;place-items:center;padding:0}
+#nav button:active{background:#2a3150}#nav .fs,#nav .nt{font-size:20px}
+#cnt{color:#eef0f6;font:700 17px Manrope,Arial;min-width:64px;text-align:center}
+#tip{position:fixed;left:16px;right:16px;bottom:calc(84px + env(safe-area-inset-bottom));text-align:center;color:#a9b0c6;font:600 15px Manrope,Arial;display:none}
+body.port #tip{display:block}
 #help{position:fixed;right:16px;bottom:12px;color:#7d86a3;font:14px Manrope,Arial;opacity:.7}
 @media (pointer:coarse){#help{display:none}}
 </style></head><body><div id="stage"><div class="sl"><section id="cover" data-transition="fade" style="background:#12151f;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:center;gap:32px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -38,7 +40,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
-<iframe class="emb" style="position:absolute;left:1032px;top:160px;width:760px;height:760px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}svg{display:block}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:1032px;top:160px;width:760px;height:760px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}svg{display:block}&lt;/style&gt;
 &lt;svg width=&quot;760&quot; height=&quot;760&quot; viewBox=&quot;0 0 760 760&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;7&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;g id=&quot;trk&quot;&gt;&lt;/g&gt;&lt;g id=&quot;dots&quot;&gt;&lt;/g&gt;&lt;g id=&quot;arcs&quot;&gt;&lt;/g&gt;&lt;g id=&quot;lbl&quot;&gt;&lt;/g&gt;&lt;circle id=&quot;core&quot; cx=&quot;380&quot; cy=&quot;380&quot; r=&quot;10&quot; fill=&quot;#ffd27a&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -74,7 +76,7 @@ core.setAttribute(&quot;r&quot;,8+4*Math.sin(t*3));core.setAttribute(&quot;opaci
 </section>
 </div>
 <div class="sl"><section id="goals" data-transition="fade" style="background:#12151f;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -97,7 +99,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 1 · Зачем</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Что хотели получить</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Четыре цели, ради которых делалась программа</p>
-<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;570&quot; viewBox=&quot;0 0 1664 570&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -133,7 +135,7 @@ C(t,S);all.setAttribute(&quot;opacity&quot;,1-E(11.4,11.95,t))});
 </section>
 </div>
 <div class="sl"><section id="stalo" data-transition="fade" style="background:#171d2c;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:center;gap:32px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -153,7 +155,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
-<iframe class="emb" style="position:absolute;left:780px;top:170px;width:1012px;height:740px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:780px;top:170px;width:1012px;height:740px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1012&quot; height=&quot;740&quot; viewBox=&quot;0 0 1012 740&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;g id=&quot;tg&quot;&gt;&lt;/g&gt;&lt;g id=&quot;ln&quot;&gt;&lt;/g&gt;&lt;g id=&quot;pk&quot;&gt;&lt;/g&gt;&lt;g id=&quot;nd&quot;&gt;&lt;/g&gt;&lt;g id=&quot;sv&quot;&gt;&lt;/g&gt;&lt;g id=&quot;cp&quot;&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -196,7 +198,7 @@ C(t,S);all.setAttribute(&quot;opacity&quot;,1-E(12.4,12.95,t))});
 </section>
 </div>
 <div class="sl"><section id="put" data-transition="fade" style="background:#12151f;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -219,7 +221,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 2 · Путь продукции</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Путь одной партии</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Каждый шаг — в одной программе: от параметров контроля до записи в Реестре</p>
-<iframe class="emb" style="position:absolute;left:128px;top:370px;width:1664px;height:560px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:370px;width:1664px;height:560px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;560&quot; viewBox=&quot;0 0 1664 560&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;6&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -260,7 +262,7 @@ bar.setAttribute(&quot;width&quot;,Math.max(0,(x-X(0))/(X(6)-X(0))*1624));C(t,SC
 </section>
 </div>
 <div class="sl"><section id="zayavka" data-transition="fade" style="background:#171d2c;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -283,7 +285,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 2 · Путь продукции</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Заявка на проверку качества</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Программа сама считает выборку, подсказывает риски и ведёт по маршруту</p>
-<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;570&quot; viewBox=&quot;0 0 1664 570&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;6&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -325,7 +327,7 @@ C(t,S);all.setAttribute(&quot;opacity&quot;,E(0,.3,t)*(1-E(12.4,12.95,t)))});
 </section>
 </div>
 <div class="sl"><section id="zadaniya" data-transition="fade" style="background:#12151f;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -348,7 +350,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 2 · Путь продукции</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Задания и результаты контроля</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Кому что проверять — и как фиксируется каждый пункт</p>
-<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;570&quot; viewBox=&quot;0 0 1664 570&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;g id=&quot;A&quot;&gt;&lt;/g&gt;&lt;g id=&quot;B&quot;&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -390,7 +392,7 @@ var sp=ez(E(10.6,11,t));st.setAttribute(&quot;opacity&quot;,sp);C(t,S);all.setAt
 </section>
 </div>
 <div class="sl"><section id="qr" data-transition="fade" style="background:#171d2c;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:center;gap:32px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -410,7 +412,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
-<iframe class="emb" style="position:absolute;left:680px;top:150px;width:1112px;height:780px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:680px;top:150px;width:1112px;height:780px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1112&quot; height=&quot;780&quot; viewBox=&quot;0 0 1112 780&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;6&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;clipPath id=&quot;cl&quot;&gt;&lt;rect x=&quot;0&quot; y=&quot;96&quot; width=&quot;1112&quot; height=&quot;700&quot;/&gt;&lt;/clipPath&gt;&lt;clipPath id=&quot;ph&quot;&gt;&lt;rect x=&quot;22&quot; y=&quot;70&quot; width=&quot;336&quot; height=&quot;440&quot; rx=&quot;10&quot;/&gt;&lt;/clipPath&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -461,7 +463,7 @@ C(t,v.S);all.setAttribute(&quot;opacity&quot;,1-E(9.4,9.95,t))});
 </section>
 </div>
 <div class="sl"><section id="mobile" data-transition="fade" style="background:#12151f;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -484,7 +486,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 2 · Путь продукции</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Мобильная версия контролёра</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Проверка на складе — с телефона, результат сразу в программе</p>
-<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;570&quot; viewBox=&quot;0 0 1664 570&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;6&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;clipPath id=&quot;sc&quot;&gt;&lt;rect x=&quot;276&quot; y=&quot;50&quot; width=&quot;298&quot; height=&quot;404&quot; rx=&quot;8&quot;/&gt;&lt;/clipPath&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -530,7 +532,7 @@ C(t,S);all.setAttribute(&quot;opacity&quot;,E(0,.3,t)*(1-E(10.4,10.95,t)))});
 </section>
 </div>
 <div class="sl"><section id="reestr" data-transition="fade" style="background:#171d2c;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -553,7 +555,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 2 · Путь продукции</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Реестр качества поставок</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Вместо Excel-журнала — живой реестр всех проверенных партий</p>
-<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;570&quot; viewBox=&quot;0 0 1664 570&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;clipPath id=&quot;tb&quot;&gt;&lt;rect x=&quot;0&quot; y=&quot;146&quot; width=&quot;1664&quot; height=&quot;316&quot;/&gt;&lt;/clipPath&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -596,7 +598,7 @@ C(t,S);all.setAttribute(&quot;opacity&quot;,E(0,.3,t)*(1-E(11.4,11.95,t)))});
 </section>
 </div>
 <div class="sl"><section id="akt" data-transition="fade" style="background:#12151f;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -619,7 +621,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 3 · Несоответствия и решения</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Акт несоответствия: путь по решению</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Одно решение — и программа сама выбирает, через какие этапы пройдёт акт</p>
-<iframe class="emb" style="position:absolute;left:128px;top:370px;width:1664px;height:560px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:370px;width:1664px;height:560px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;560&quot; viewBox=&quot;0 0 1664 560&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;7&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -659,7 +661,7 @@ all.setAttribute(&quot;opacity&quot;,1-E(P-.45,P-.05,t))});
 </section>
 </div>
 <div class="sl"><section id="resheniya" data-transition="fade" style="background:#171d2c;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -682,7 +684,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 3 · Несоответствия и решения</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Решения по позициям акта</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">У разных несоответствий — разные решения, а акт остаётся один</p>
-<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;570&quot; viewBox=&quot;0 0 1664 570&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;6&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -719,7 +721,7 @@ C(t,S);all.setAttribute(&quot;opacity&quot;,E(0,.3,t)*(1-E(11.4,11.95,t)))});
 </section>
 </div>
 <div class="sl"><section id="otvet" data-transition="fade" style="background:#12151f;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -742,7 +744,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 3 · Несоответствия и решения</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Ответственность и сроки</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Акт проходит через ОТК, производство и конструкторов — и всегда видно, у кого он</p>
-<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;570&quot; viewBox=&quot;0 0 1664 570&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;6&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -784,7 +786,7 @@ C(t,S);all.setAttribute(&quot;opacity&quot;,E(0,.3,t)*(1-E(15.4,15.95,t)))});
 </section>
 </div>
 <div class="sl"><section id="pareto" data-transition="fade" style="background:#171d2c;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -807,7 +809,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 3 · Несоответствия и решения</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Дефекты и причины</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Какие дефекты встречаются чаще всего — и с чего начинать улучшения</p>
-<iframe class="emb" style="position:absolute;left:128px;top:370px;width:1664px;height:560px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:370px;width:1664px;height:560px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;560&quot; viewBox=&quot;0 0 1664 560&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -849,7 +851,7 @@ C(t,S);all.setAttribute(&quot;opacity&quot;,1-E(12.4,12.95,t))});
 </section>
 </div>
 <div class="sl"><section id="lab" data-transition="fade" style="background:#12151f;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -872,7 +874,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7fb8f0">Часть 4 · Лаборатория и Метрология</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Лаборатория: от заявки до акта</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Испытание, протокол и стоимость работ — без ручного пересчёта</p>
-<iframe class="emb" style="position:absolute;left:128px;top:370px;width:1664px;height:560px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:370px;width:1664px;height:560px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;560&quot; viewBox=&quot;0 0 1664 560&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -916,7 +918,7 @@ C(t,S);all.setAttribute(&quot;opacity&quot;,1-E(11.4,11.95,t))});
 </section>
 </div>
 <div class="sl"><section id="metro" data-transition="fade" style="background:#171d2c;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -939,7 +941,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ff7f7a">Часть 4 · Лаборатория и Метрология</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Метрология: конвейер МК</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Приборы сами переходят по колонкам — срок поверки не пропустить</p>
-<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;570&quot; viewBox=&quot;0 0 1664 570&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -975,7 +977,7 @@ cnt.forEach(function(c,i){c.textContent=n[i]});C(t,S);all.setAttribute(&quot;opa
 </section>
 </div>
 <div class="sl"><section id="tmc" data-transition="fade" style="background:#171d2c;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -998,7 +1000,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#a6a1f7">Часть 4 · Лаборатория и Метрология</p>
 <h2 style="font-size:64px;font-weight:800;line-height:1.1">Перечень продукции, подлежащей контролю</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Что и как контролировать — согласовано заранее для каждой номенклатуры</p>
-<iframe class="emb" style="position:absolute;left:128px;top:400px;width:1664px;height:530px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:400px;width:1664px;height:530px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;530&quot; viewBox=&quot;0 0 1664 530&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -1037,7 +1039,7 @@ C(t,S);all.setAttribute(&quot;opacity&quot;,E(0,.3,t)*(1-E(11.4,11.95,t)))});
 </section>
 </div>
 <div class="sl"><section id="supply" data-transition="fade" style="background:#12151f;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -1060,7 +1062,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 4 · Лаборатория и Метрология</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Снабжение: приём партии</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Партия приходит в ОТК сразу с документами — и итог возвращается снабжению</p>
-<iframe class="emb" style="position:absolute;left:128px;top:400px;width:1664px;height:530px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:400px;width:1664px;height:530px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;530&quot; viewBox=&quot;0 0 1664 530&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;6&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -1099,7 +1101,7 @@ C(t,S);all.setAttribute(&quot;opacity&quot;,E(0,.3,t)*(1-E(10.4,10.95,t)))});
 </section>
 </div>
 <div class="sl"><section id="desks" data-transition="fade" style="background:#171d2c;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -1122,7 +1124,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 5 · Управление по данным</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Рабочие столы сотрудников</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Каждый открывает программу — и сразу видит своё</p>
-<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;570&quot; viewBox=&quot;0 0 1664 570&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;8&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;st&quot;&gt;&lt;/g&gt;&lt;g id=&quot;cp&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -1163,7 +1165,7 @@ o.sort(function(a,b){return a[0]-b[0]}).forEach(function(p){stg.appendChild(p[1]
 </section>
 </div>
 <div class="sl"><section id="risks" data-transition="fade" style="background:#12151f;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -1186,7 +1188,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 5 · Управление по данным</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Управление рисками поставщиков</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Риск — по доле партий с несоответствием за 12 месяцев</p>
-<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;570&quot; viewBox=&quot;0 0 1664 570&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -1227,7 +1229,7 @@ C(t,SC);all.setAttribute(&quot;opacity&quot;,1-E(12.4,12.95,t))});
 </section>
 </div>
 <div class="sl"><section id="gost" data-transition="fade" style="background:#171d2c;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -1250,7 +1252,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 5 · Управление по данным</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Метод контроля по ГОСТ Р ИСО 2859-1</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Сколько изделий проверять и когда ужесточать контроль — по правилам стандарта</p>
-<iframe class="emb" style="position:absolute;left:128px;top:370px;width:1664px;height:560px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:370px;width:1664px;height:560px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;560&quot; viewBox=&quot;0 0 1664 560&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;6&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -1297,7 +1299,7 @@ scb.setAttribute(&quot;width&quot;,300*s/30);scv.textContent=s;C(t,S);all.setAtt
 </section>
 </div>
 <div class="sl"><section id="cifry" data-transition="fade" style="background:linear-gradient(160deg, #1d2335 0%, #12151f 70%);color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -1319,7 +1321,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 6 · Итог</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Программа в цифрах</h2>
-<iframe class="emb" style="position:absolute;left:128px;top:340px;width:1664px;height:580px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden;font-family:&quot;Segoe UI&quot;,Arial,sans-serif;color:#eef0f6}
+<iframe class="emb" style="position:absolute;left:128px;top:340px;width:1664px;height:580px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden;font-family:&quot;Segoe UI&quot;,Arial,sans-serif;color:#eef0f6}
 .g{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}.t{background:#1d2335;border:2px solid #313a54;border-radius:24px;padding:36px 40px;height:178px;box-sizing:border-box;opacity:0;transform:translateY(24px)}
 .n{font-size:92px;font-weight:800;line-height:1;color:var(--c);font-variant-numeric:tabular-nums}.l{font-size:28px;font-weight:600;color:#a9b0c6;margin-top:14px}.bar{height:6px;border-radius:3px;background:var(--c);margin-top:18px;width:0}&lt;/style&gt;
 &lt;div class=&quot;g&quot; id=&quot;g&quot;&gt;&lt;/div&gt;
@@ -1339,7 +1341,7 @@ requestAnimationFrame(f);
 </section>
 </div>
 <div class="sl"><section id="dalshe" data-transition="fade" style="background:#171d2c;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#171d2c}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -1362,7 +1364,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 6 · Итог</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Что дальше</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Программа развивается: следующие шаги уже намечены</p>
-<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;570&quot; viewBox=&quot;0 0 1664 570&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;7&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
@@ -1394,7 +1396,7 @@ C(t,S);all.setAttribute(&quot;opacity&quot;,E(0,.3,t)*(1-E(10.9,11.45,t)))});
 </section>
 </div>
 <div class="sl"><section id="final" data-transition="fade" style="background:radial-gradient(circle at 30% 50%, #1d2335 0%, #12151f 60%);color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:center;align-items:end;gap:32px">
-<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
+<iframe class="emb" style="position:absolute;left:0px;top:0px;width:1920px;height:1080px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;overflow:hidden;background:#12151f}
 .b{position:absolute;border-radius:50%}
 .b1{width:1100px;height:1100px;left:-300px;top:-420px;background:radial-gradient(circle,rgba(166,161,247,.20),transparent 62%);animation:d1 16s ease-in-out infinite alternate}
 .b2{width:1200px;height:1200px;right:-380px;bottom:-520px;background:radial-gradient(circle,rgba(46,84,255,.16),transparent 62%);animation:d2 19s ease-in-out infinite alternate}
@@ -1414,7 +1416,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
-<iframe class="emb" style="position:absolute;left:128px;top:160px;width:760px;height:760px" srcdoc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}svg{display:block}&lt;/style&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:160px;width:760px;height:760px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}svg{display:block}&lt;/style&gt;
 &lt;svg width=&quot;760&quot; height=&quot;760&quot; viewBox=&quot;0 0 760 760&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;7&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;g id=&quot;trk&quot;&gt;&lt;/g&gt;&lt;g id=&quot;arcs&quot;&gt;&lt;/g&gt;&lt;g id=&quot;dots&quot;&gt;&lt;/g&gt;&lt;circle id=&quot;core&quot; cx=&quot;380&quot; cy=&quot;380&quot; r=&quot;10&quot; fill=&quot;#ffd27a&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;,R=[150,215,280],C=[&quot;#a6a1f7&quot;,&quot;#6dc4a2&quot;,&quot;#7fb8f0&quot;],T=8;
@@ -1439,14 +1441,20 @@ requestAnimationFrame(f);
 <aside class="notes">Финал: кольца собираются и продолжают вращаться, пока идут вопросы. Можно добавить QR-код на демо-версию.</aside>
 </section>
 </div>
-<div id="nav"><button class="pv" aria-label="Назад">‹</button><span id="cnt"></span><button class="nx" aria-label="Дальше">›</button><button class="fs" aria-label="Весь экран">⛶</button><button class="nt" aria-label="Заметки">✎</button></div></div>
+</div><div id="tip">↻ Поверните телефон горизонтально — слайд будет на весь экран</div>
+<div id="nav"><button class="pv" aria-label="Назад">‹</button><span id="cnt"></span><button class="nx" aria-label="Дальше">›</button><button class="fs" aria-label="Весь экран">⛶</button><button class="nt" aria-label="Заметки">✎</button></div>
 <div id="help">← → листать · F — весь экран · N — заметки</div>
 <script>
 var S=[].slice.call(document.querySelectorAll("#stage>.sl")),i=0,st=document.getElementById("stage"),nav=document.getElementById("nav"),cnt=document.getElementById("cnt"),rot=false,
  touch=matchMedia("(pointer:coarse)").matches,hideT;
-function fit(){var W=innerWidth,H=innerHeight;rot=touch&&H>W;var k=rot?Math.min(H/1920,W/1080):Math.min(W/1920,H/1080);
- st.style.transform="translate(-50%,-50%)"+(rot?" rotate(90deg)":"")+" scale("+k+")"}
-function go(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach(function(s,k){s.classList.toggle("on",k==i)});cnt.textContent=(i+1)+" / "+S.length;
+function fit(){var W=innerWidth,H=innerHeight,k=Math.min(W/1920,H/1080);document.body.classList.toggle("port",touch&&H>W);
+ st.style.transform="translate(-50%,-50%) scale("+k+")"}
+// Анимации — только у открытого слайда; на телефоне — без свечения (размытие тяжело для телефона).
+function lite(d){return touch?d.replace(/url\(#g\)/g,"none").replace(/filter:blur\([^)]*\)/g,"filter:none"):d}
+function mount(k){S.forEach(function(s,n){[].forEach.call(s.querySelectorAll("iframe.emb"),function(f){
+ if(n==k){if(!f.getAttribute("srcdoc"))f.setAttribute("srcdoc",lite(f.getAttribute("data-doc")))}
+ else if(f.getAttribute("srcdoc")){f.removeAttribute("srcdoc");f.src="about:blank"}})})}
+function go(n){i=Math.max(0,Math.min(S.length-1,n));mount(i);S.forEach(function(s,k){s.classList.toggle("on",k==i)});cnt.textContent=(i+1)+" / "+S.length;
  history.replaceState(null,"","#"+(i+1));show()}
 function show(){nav.classList.remove("hide");clearTimeout(hideT);hideT=setTimeout(function(){nav.classList.add("hide")},touch?3500:2500)}
 function full(){var d=document,e=d.documentElement;if(d.fullscreenElement||d.webkitFullscreenElement){(d.exitFullscreen||d.webkitExitFullscreen).call(d);return}
@@ -1462,7 +1470,7 @@ addEventListener("mousemove",function(){if(!touch)show()});
 addEventListener("click",function(e){if(touch)return;go(e.clientX<innerWidth/3?i-1:i+1)});
 var t0=null;addEventListener("touchstart",function(e){var t=e.touches[0];t0={x:t.clientX,y:t.clientY}},{passive:true});
 addEventListener("touchend",function(e){if(!t0)return;var t=e.changedTouches[0],dx=t.clientX-t0.x,dy=t.clientY-t0.y;t0=null;
- if(e.target.closest&&e.target.closest("#nav"))return;var a=rot?dy:dx,b=rot?dx:dy;
+ if(e.target.closest&&e.target.closest("#nav"))return;var a=dx,b=dy;
  if(Math.abs(a)>40&&Math.abs(a)>Math.abs(b))go(a<0?i+1:i-1);else show()},{passive:true});
 go((parseInt(location.hash.slice(1))||1)-1);
 </script></body></html>
