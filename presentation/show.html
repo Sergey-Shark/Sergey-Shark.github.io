@@ -245,7 +245,7 @@ n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S
 var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
 function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;),BY=124;
-var S=[[&quot;Конструктор&quot;,&quot;параметры&quot;,&quot;контроля&quot;,&quot;Перечень ✓&quot;],[&quot;Снабжение&quot;,&quot;задание&quot;,&quot;на приём&quot;,&quot;документы ✓&quot;],[&quot;Заявка ОТК&quot;,&quot;позиции,&quot;,&quot;риск поставщика&quot;,&quot;риск: низкий&quot;],[&quot;Задания&quot;,&quot;ВИК и ДК&quot;,&quot;исполнителям&quot;,&quot;2 задания&quot;],[&quot;Результаты&quot;,&quot;пункты, фото,&quot;,&quot;ярлыки&quot;,&quot;ВИК ✓  ДК ✓&quot;],[&quot;Лаборатория&quot;,&quot;испытания&quot;,&quot;и протокол&quot;,&quot;ИЛ ✓&quot;],[&quot;Реестр&quot;,&quot;качества&quot;,&quot;поставок&quot;,&quot;СООТВЕТСТВУЕТ&quot;]];
+var S=[[&quot;Конструктор&quot;,&quot;параметры&quot;,&quot;контроля&quot;,&quot;Перечень ✓&quot;],[&quot;Снабжение&quot;,&quot;задание&quot;,&quot;на приём&quot;,&quot;документы ✓&quot;],[&quot;Заявка ОТК&quot;,&quot;позиции,&quot;,&quot;риск поставщика&quot;,&quot;риск: низкий&quot;],[&quot;Задания&quot;,&quot;ВИК и ДК&quot;,&quot;исполнителям&quot;,&quot;2 задания&quot;],[&quot;Результаты&quot;,&quot;по пунктам:&quot;,&quot;замеры и фото&quot;,&quot;ВИК ✓  ДК ✓&quot;],[&quot;Лаборатория&quot;,&quot;испытания&quot;,&quot;и протокол&quot;,&quot;ИЛ ✓&quot;],[&quot;Реестр&quot;,&quot;качества&quot;,&quot;поставок&quot;,&quot;СООТВЕТСТВУЕТ&quot;]];
 var IC=[&quot;M0 -32 v8 M0 -24 L-18 28 M0 -24 L18 28 M-12 10 h24&quot;,&quot;M-26 -14 L0 -26 L26 -14 L26 16 L0 28 L-26 16 Z M-26 -14 L0 -2 L26 -14 M0 -2 L0 28&quot;,&quot;M-22 -24 h44 v54 h-44 Z M-10 -30 h20 v10 h-20 Z M-12 -6 h24 M-12 6 h24 M-12 18 h14&quot;,&quot;M-12 -12 m-9 0 a9 9 0 1 0 18 0 a9 9 0 1 0 -18 0 M14 -14 m-8 0 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0 M-30 26 q18 -30 36 0 M2 22 q14 -26 30 0&quot;,&quot;M-6 -6 m-18 0 a18 18 0 1 0 36 0 a18 18 0 1 0 -36 0 M7 7 L26 26&quot;,&quot;M-8 -28 h16 M-6 -28 v18 L-24 22 q-2 8 6 8 h36 q8 0 6 -8 L6 -10 v-18 M-15 10 h30&quot;,&quot;M-28 -22 h56 v46 h-56 Z M-28 -8 h56 M-28 6 h56 M-6 -22 v46&quot;];
 var X=function(i){return 112+i*240},st=[];
 el(&quot;rect&quot;,{x:20,y:434,width:1624,height:8,rx:4,fill:&quot;#283047&quot;},all);var bar=el(&quot;rect&quot;,{x:20,y:434,width:0,height:8,rx:4,fill:&quot;#6dc4a2&quot;,filter:&quot;url(#g)&quot;},all);
@@ -259,24 +259,37 @@ el(&quot;rect&quot;,{x:x-w/2,y:BY+220,width:w,height:46,rx:23,fill:last?&quot;#7
 st.push({b:b,c:c,ic:ic})});
 var card=el(&quot;g&quot;,{},all);el(&quot;rect&quot;,{x:-110,y:4,width:220,height:100,rx:18,fill:&quot;#2a2418&quot;,stroke:&quot;#ffd27a&quot;,&quot;stroke-width&quot;:3,filter:&quot;url(#g)&quot;},card);
 var ch=tx(card,0,46,26,800,&quot;#ffd27a&quot;,&quot;&quot;,&quot;middle&quot;);tx(card,0,82,24,500,&quot;#eadfc8&quot;,&quot;Тройник 159×6&quot;,&quot;middle&quot;);
-// Паспорт партии: на «Снабжении» карточка раскрывается — что такое партия (владелец, вариант А)
-var PD=4,pp=el(&quot;g&quot;,{},all),PX=340,PY=215;el(&quot;rect&quot;,{x:20,y:0,width:640,height:430,rx:22,fill:&quot;#2a2418&quot;,stroke:&quot;#ffd27a&quot;,&quot;stroke-width&quot;:3,filter:&quot;url(#g)&quot;},pp);
-tx(pp,52,52,34,800,&quot;#ffd27a&quot;,&quot;Партия 24-117&quot;);tx(pp,52,86,22,600,&quot;#cbb994&quot;,&quot;паспорт партии — что значит «партия»&quot;);
-var PR=[[&quot;Номенклатура&quot;,&quot;Тройник 159×6&quot;],[&quot;Количество&quot;,&quot;10 шт.&quot;],[&quot;Поставщик&quot;,&quot;Поставщик А&quot;],[&quot;Документ о качестве&quot;,&quot;сертификат № 1234&quot;],[&quot;Плавка (металл)&quot;,&quot;Т-5521&quot;]].map(function(r,k){var g=el(&quot;g&quot;,{},pp),y=104+k*64;
-el(&quot;line&quot;,{x1:52,y1:y,x2:628,y2:y,stroke:&quot;#4a3f2c&quot;,&quot;stroke-width&quot;:2},g);tx(g,52,y+42,24,500,&quot;#cbb994&quot;,r[0]);tx(g,628,y+42,26,800,&quot;#eef0f6&quot;,r[1],&quot;end&quot;);return g});
-var C=cap(all,0,484,1664),A=[0,1,2,3,4,5,6].map(function(i){return .8+i*1.75+(i&gt;=2?PD:0)}),P0=A[1]+.5,P1=A[1]+PD-.9,
-SC=[[.5,&quot;Конструктор заранее задаёт, что и как контролировать по номенклатуре&quot;],[A[1]-.3,&quot;Снабжение принимает партию и прикладывает документы о качестве&quot;],[P0,&quot;Партия — одна поставка одной продукции с одним документом о качестве&quot;],[A[2]-.3,&quot;ОТК оформляет заявку — программа сразу показывает риск поставщика&quot;],[A[3]-.3,&quot;Задания ВИК и ДК выдаются контролёрам и инженерам&quot;],[A[4]-.3,&quot;Каждый пункт проверки — с фото, на партию печатается ярлык&quot;],[A[5]-.3,&quot;Если нужно — испытания в Лаборатории и протокол&quot;],[A[6]-.3,&quot;Итог сам попадает в Реестр качества поставок&quot;]];
-loop(17.6,function(t){var pos=0;
-for(var i=0;i&lt;7;i++){var a=A[i];if(i&gt;0)pos+=io(E(a-1.2,a-.1,t));var on=E(a-.2,a+.2,t)&gt;.5;
+// Окошко-пояснение у каждого блока: карточка доезжает — окошко раскрывается, держится, сворачивается (владелец)
+var PW=640,PU=[
+[&quot;Параметры контроля&quot;,&quot;что и как проверять — задаёт конструктор&quot;,[[&quot;ВИК (осмотр, замеры)&quot;,&quot;выборочно 10 %&quot;],[&quot;ДК (документы)&quot;,&quot;документ о качестве&quot;],[&quot;ИЛ (испытания)&quot;,&quot;химсостав, растяжение&quot;],[&quot;Согласование&quot;,&quot;ОТК и МГЦ ✓&quot;]]],
+[&quot;Партия 24-117&quot;,&quot;паспорт партии — что значит «партия»&quot;,[[&quot;Номенклатура&quot;,&quot;Тройник 159×6&quot;],[&quot;Количество&quot;,&quot;10 шт.&quot;],[&quot;Поставщик&quot;,&quot;Поставщик А&quot;],[&quot;Документ о качестве&quot;,&quot;сертификат № 1234&quot;],[&quot;Плавка (металл)&quot;,&quot;Т-5521&quot;]]],
+[&quot;Заявка ОТК № 41&quot;,&quot;ОТК принимает партию на проверку&quot;,[[&quot;Позиция&quot;,&quot;Тройник 159×6 · 10 шт.&quot;],[&quot;Проверить&quot;,&quot;1 шт. из 10 (10 %)&quot;],[&quot;Риск поставщика&quot;,&quot;низкий&quot;],[&quot;Дальше&quot;,&quot;задания → акты → ИЛ&quot;]]],
+[&quot;Задания&quot;,&quot;кто и что проверяет&quot;,[[&quot;ВИК № 12&quot;,&quot;Контролёр 1&quot;],[&quot;ДК № 14&quot;,&quot;Инженер&quot;],[&quot;Порядок&quot;,&quot;сначала ВИК, потом ДК&quot;],[&quot;Срок&quot;,&quot;сегодня&quot;]]],
+[&quot;Результаты контроля&quot;,&quot;пункты проверки · изделие 1&quot;,[[&quot;Ø 159,4 мм (159 ± 1,5)&quot;,&quot;✓&quot;],[&quot;стенка 6,1 мм (6 ± 0,6)&quot;,&quot;✓&quot;],[&quot;покрытие — без сколов&quot;,&quot;✓&quot;],[&quot;Фото&quot;,&quot;2 шт.&quot;],[&quot;Ярлык&quot;,&quot;СООТВЕТСТВУЕТ&quot;]]],
+[&quot;Испытания ИЛ&quot;,&quot;лаборатория проверяет материал&quot;,[[&quot;Химсостав&quot;,&quot;норма ✓&quot;],[&quot;Растяжение σв&quot;,&quot;510 МПа ✓ (≥ 490)&quot;],[&quot;Протокол&quot;,&quot;№ 790-1-1/ИЛ ✓&quot;]]],
+[&quot;Строка в Реестре&quot;,&quot;итог проверки — сам, без ручного ввода&quot;,[[&quot;Дата · поставщик&quot;,&quot;03.11 · Поставщик А&quot;],[&quot;Продукция · партия&quot;,&quot;Тройник 159×6 · 24-117&quot;],[&quot;ДК · ВИК · ИЛ&quot;,&quot;✓ · ✓ · ✓&quot;],[&quot;Итог&quot;,&quot;СООТВЕТСТВУЕТ&quot;]]]];
+var MOVE=1.2,A=[],DW=[],t0=.8;PU.forEach(function(u,i){A.push(t0);DW.push(.6+u[2].length*.3+2.4+.5);t0+=DW[i]+MOVE});var TT=A[6]+DW[6]+.8;
+var pops=PU.map(function(u,i){var n=u[2].length,h=104+n*64+18,L=Math.min(Math.max(X(i)-PW/2,20),1664-PW-20),g=el(&quot;g&quot;,{},all);
+el(&quot;rect&quot;,{x:L,y:0,width:PW,height:h,rx:22,fill:&quot;#2a2418&quot;,stroke:&quot;#ffd27a&quot;,&quot;stroke-width&quot;:3,filter:&quot;url(#g)&quot;},g);
+tx(g,L+32,52,34,800,&quot;#ffd27a&quot;,u[0]);tx(g,L+32,86,22,600,&quot;#cbb994&quot;,u[1]);
+var rows=u[2].map(function(r,k){var rg=el(&quot;g&quot;,{},g),y=104+k*64,good=/✓|СООТВЕТСТВУЕТ/.test(r[1]);
+el(&quot;line&quot;,{x1:L+32,y1:y,x2:L+PW-32,y2:y,stroke:&quot;#4a3f2c&quot;,&quot;stroke-width&quot;:2},rg);tx(rg,L+32,y+42,24,500,&quot;#cbb994&quot;,r[0]);tx(rg,L+PW-32,y+42,26,800,good?&quot;#73d29c&quot;:&quot;#eef0f6&quot;,r[1],&quot;end&quot;);return rg});
+return {g:g,rows:rows,cx:L+PW/2,cy:h/2,o0:A[i]+.3,o1:A[i]+DW[i]-.5}});
+var C=cap(all,0,484,1664),SC=[[A[0]-.2,&quot;Конструктор заранее задаёт, что и как контролировать по номенклатуре&quot;],[A[1]-.2,&quot;Партия — одна поставка одной продукции с одним документом о качестве&quot;],[A[2]-.2,&quot;ОТК оформляет заявку: программа считает, сколько проверить, и показывает риск&quot;],[A[3]-.2,&quot;Задания ВИК и ДК выдаются контролёрам и инженерам&quot;],[A[4]-.2,&quot;Каждый пункт проверки — требование и факт, с фото; на партию — ярлык&quot;],[A[5]-.2,&quot;Если нужно — испытания в Лаборатории и протокол&quot;],[A[6]-.2,&quot;Итог сам попадает в Реестр качества поставок&quot;]];
+loop(TT,function(t){var pos=0,open=0;
+for(var i=0;i&lt;7;i++){var a=A[i];if(i&gt;0)pos+=io(E(a-MOVE,a-.1,t));var on=E(a-.2,a+.2,t)&gt;.5;
 st[i].b.setAttribute(&quot;stroke&quot;,on?&quot;#ffd27a&quot;:&quot;#313a54&quot;);st[i].b.setAttribute(&quot;fill&quot;,on?&quot;#262e45&quot;:&quot;#1d2335&quot;);st[i].ic.setAttribute(&quot;stroke&quot;,on?&quot;#ffd27a&quot;:&quot;#6b7698&quot;);
 var cp=ez(E(a+.1,a+.5,t));st[i].c.setAttribute(&quot;opacity&quot;,cp);st[i].c.setAttribute(&quot;transform&quot;,&quot;translate(0 &quot;+(12*(1-cp))+&quot;)&quot;)}
-var x=X(0)+pos*240;ch.textContent=pos&lt;.5?&quot;Номенклатура&quot;:&quot;Партия 24-117&quot;;card.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+x+&quot; &quot;+(-4*Math.abs(Math.sin(t*6))*(pos%1&gt;0.02&amp;&amp;pos%1&lt;.98?1:0))+&quot;)&quot;);var op=ez(E(P0,P0+.5,t))*(1-ez(E(P1,P1+.5,t)));card.setAttribute(&quot;opacity&quot;,E(.2,.7,t)*(1-op));
-var dx=x-PX,dy=54-PY;pp.setAttribute(&quot;opacity&quot;,op);pp.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(dx*(1-op))+&quot; &quot;+(dy*(1-op))+&quot;) translate(&quot;+PX+&quot; &quot;+PY+&quot;) scale(&quot;+(.25+.75*op)+&quot;) translate(&quot;+(-PX)+&quot; &quot;+(-PY)+&quot;)&quot;);
-PR.forEach(function(g,k){g.setAttribute(&quot;opacity&quot;,E(P0+.5+k*.3,P0+.75+k*.3,t))});
-bar.setAttribute(&quot;width&quot;,Math.max(0,(x-X(0))/(X(6)-X(0))*1624));C(t,SC);all.setAttribute(&quot;opacity&quot;,1-E(17,17.5,t))});
+var x=X(0)+pos*240;ch.textContent=pos&lt;.5?&quot;Номенклатура&quot;:&quot;Партия 24-117&quot;;
+pops.forEach(function(p,i){var op=ez(E(p.o0,p.o0+.5,t))*(1-ez(E(p.o1,p.o1+.5,t)));open=Math.max(open,op);p.g.setAttribute(&quot;opacity&quot;,op);
+p.g.setAttribute(&quot;display&quot;,op&gt;.001?&quot;inline&quot;:&quot;none&quot;);var dx=x-p.cx,dy=54-p.cy;
+p.g.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(dx*(1-op))+&quot; &quot;+(dy*(1-op))+&quot;) translate(&quot;+p.cx+&quot; &quot;+p.cy+&quot;) scale(&quot;+(.25+.75*op)+&quot;) translate(&quot;+(-p.cx)+&quot; &quot;+(-p.cy)+&quot;)&quot;);
+p.rows.forEach(function(r,k){r.setAttribute(&quot;opacity&quot;,E(p.o0+.5+k*.3,p.o0+.75+k*.3,t))})});
+card.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+x+&quot; &quot;+(-4*Math.abs(Math.sin(t*6))*(pos%1&gt;0.02&amp;&amp;pos%1&lt;.98?1:0))+&quot;)&quot;);card.setAttribute(&quot;opacity&quot;,E(.2,.7,t)*(1-open));
+bar.setAttribute(&quot;width&quot;,Math.max(0,(x-X(0))/(X(6)-X(0))*1624));C(t,SC);all.setAttribute(&quot;opacity&quot;,1-E(TT-.5,TT-.05,t))});
 &lt;/script&gt;"></iframe>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7d86a3">Управление качеством продукции · 4</p>
-<aside class="notes">На «Снабжении» карточка раскрывается в паспорт партии (номенклатура, количество, поставщик, документ о качестве, плавка) — так видно, что такое партия; потом сворачивается и едет дальше. Начало — Конструктор: в «Перечне продукции» он задаёт, что и как контролировать по номенклатуре. Дальше карточка становится партией и «едет» по этапам, этап загорается, под ним появляется итог, внизу подпись объясняет шаг. Без слов видно: весь путь продукции — в одной программе.</aside>
+<aside class="notes">Карточка партии едет по 7 блокам; у каждого блока раскрывается окошко-пояснение и держится несколько секунд: параметры контроля (конструктор), паспорт партии (что такое партия), заявка ОТК (сколько проверить, риск), задания (кто проверяет), результаты (пункты проверки — требование и факт), испытания ИЛ, строка в Реестре. Задержаться на окошке — пробел.</aside>
 </section>
 </div>
 <div class="sl"><section id="zayavka" data-transition="fade" style="background:#171d2c;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
@@ -1505,7 +1518,7 @@ requestAnimationFrame(f);
 </div>
 </div><div id="pzb">⏸ Пауза · пробел или ▶ — продолжить</div><div id="tip">↻ Поверните телефон горизонтально — слайд будет на весь экран</div>
 <div id="nav"><button class="pv" aria-label="Назад">‹</button><span id="cnt"></span><button class="nx" aria-label="Дальше">›</button><button class="pz" aria-label="Пауза">⏸</button><button class="fs" aria-label="Весь экран">⛶</button><button class="nt" aria-label="Заметки">✎</button></div>
-<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 11.11 14:19</div>
+<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 11.11 19:25</div>
 <script>
 var S=[].slice.call(document.querySelectorAll("#stage>.sl")),i=0,st=document.getElementById("stage"),nav=document.getElementById("nav"),cnt=document.getElementById("cnt"),rot=false,
  touch=matchMedia("(pointer:coarse)").matches,hideT;
