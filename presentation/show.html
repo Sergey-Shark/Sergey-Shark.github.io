@@ -259,17 +259,24 @@ el(&quot;rect&quot;,{x:x-w/2,y:BY+220,width:w,height:46,rx:23,fill:last?&quot;#7
 st.push({b:b,c:c,ic:ic})});
 var card=el(&quot;g&quot;,{},all);el(&quot;rect&quot;,{x:-110,y:4,width:220,height:100,rx:18,fill:&quot;#2a2418&quot;,stroke:&quot;#ffd27a&quot;,&quot;stroke-width&quot;:3,filter:&quot;url(#g)&quot;},card);
 var ch=tx(card,0,46,26,800,&quot;#ffd27a&quot;,&quot;&quot;,&quot;middle&quot;);tx(card,0,82,24,500,&quot;#eadfc8&quot;,&quot;Тройник 159×6&quot;,&quot;middle&quot;);
-var C=cap(all,0,484,1664),A=[0,1,2,3,4,5,6].map(function(i){return .8+i*1.75}),
-SC=[[.5,&quot;Конструктор заранее задаёт, что и как контролировать по номенклатуре&quot;],[A[1]-.3,&quot;Снабжение принимает партию и прикладывает документы о качестве&quot;],[A[2]-.3,&quot;ОТК оформляет заявку — программа сразу показывает риск поставщика&quot;],[A[3]-.3,&quot;Задания ВИК и ДК выдаются контролёрам и инженерам&quot;],[A[4]-.3,&quot;Каждый пункт проверки — с фото, на партию печатается ярлык&quot;],[A[5]-.3,&quot;Если нужно — испытания в Лаборатории и протокол&quot;],[A[6]-.3,&quot;Итог сам попадает в Реестр качества поставок&quot;]];
-loop(13.6,function(t){var pos=0;
+// Паспорт партии: на «Снабжении» карточка раскрывается — что такое партия (владелец, вариант А)
+var PD=4,pp=el(&quot;g&quot;,{},all),PX=340,PY=215;el(&quot;rect&quot;,{x:20,y:0,width:640,height:430,rx:22,fill:&quot;#2a2418&quot;,stroke:&quot;#ffd27a&quot;,&quot;stroke-width&quot;:3,filter:&quot;url(#g)&quot;},pp);
+tx(pp,52,52,34,800,&quot;#ffd27a&quot;,&quot;Партия 24-117&quot;);tx(pp,52,86,22,600,&quot;#cbb994&quot;,&quot;паспорт партии — что значит «партия»&quot;);
+var PR=[[&quot;Номенклатура&quot;,&quot;Тройник 159×6&quot;],[&quot;Количество&quot;,&quot;10 шт.&quot;],[&quot;Поставщик&quot;,&quot;Поставщик А&quot;],[&quot;Документ о качестве&quot;,&quot;сертификат № 1234&quot;],[&quot;Плавка (металл)&quot;,&quot;Т-5521&quot;]].map(function(r,k){var g=el(&quot;g&quot;,{},pp),y=104+k*64;
+el(&quot;line&quot;,{x1:52,y1:y,x2:628,y2:y,stroke:&quot;#4a3f2c&quot;,&quot;stroke-width&quot;:2},g);tx(g,52,y+42,24,500,&quot;#cbb994&quot;,r[0]);tx(g,628,y+42,26,800,&quot;#eef0f6&quot;,r[1],&quot;end&quot;);return g});
+var C=cap(all,0,484,1664),A=[0,1,2,3,4,5,6].map(function(i){return .8+i*1.75+(i&gt;=2?PD:0)}),P0=A[1]+.5,P1=A[1]+PD-.9,
+SC=[[.5,&quot;Конструктор заранее задаёт, что и как контролировать по номенклатуре&quot;],[A[1]-.3,&quot;Снабжение принимает партию и прикладывает документы о качестве&quot;],[P0,&quot;Партия — одна поставка одной продукции с одним документом о качестве&quot;],[A[2]-.3,&quot;ОТК оформляет заявку — программа сразу показывает риск поставщика&quot;],[A[3]-.3,&quot;Задания ВИК и ДК выдаются контролёрам и инженерам&quot;],[A[4]-.3,&quot;Каждый пункт проверки — с фото, на партию печатается ярлык&quot;],[A[5]-.3,&quot;Если нужно — испытания в Лаборатории и протокол&quot;],[A[6]-.3,&quot;Итог сам попадает в Реестр качества поставок&quot;]];
+loop(17.6,function(t){var pos=0;
 for(var i=0;i&lt;7;i++){var a=A[i];if(i&gt;0)pos+=io(E(a-1.2,a-.1,t));var on=E(a-.2,a+.2,t)&gt;.5;
 st[i].b.setAttribute(&quot;stroke&quot;,on?&quot;#ffd27a&quot;:&quot;#313a54&quot;);st[i].b.setAttribute(&quot;fill&quot;,on?&quot;#262e45&quot;:&quot;#1d2335&quot;);st[i].ic.setAttribute(&quot;stroke&quot;,on?&quot;#ffd27a&quot;:&quot;#6b7698&quot;);
 var cp=ez(E(a+.1,a+.5,t));st[i].c.setAttribute(&quot;opacity&quot;,cp);st[i].c.setAttribute(&quot;transform&quot;,&quot;translate(0 &quot;+(12*(1-cp))+&quot;)&quot;)}
-var x=X(0)+pos*240;ch.textContent=pos&lt;.5?&quot;Номенклатура&quot;:&quot;Партия 24-117&quot;;card.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+x+&quot; &quot;+(-4*Math.abs(Math.sin(t*6))*(pos%1&gt;0.02&amp;&amp;pos%1&lt;.98?1:0))+&quot;)&quot;);card.setAttribute(&quot;opacity&quot;,E(.2,.7,t));
-bar.setAttribute(&quot;width&quot;,Math.max(0,(x-X(0))/(X(6)-X(0))*1624));C(t,SC);all.setAttribute(&quot;opacity&quot;,1-E(13,13.5,t))});
+var x=X(0)+pos*240;ch.textContent=pos&lt;.5?&quot;Номенклатура&quot;:&quot;Партия 24-117&quot;;card.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+x+&quot; &quot;+(-4*Math.abs(Math.sin(t*6))*(pos%1&gt;0.02&amp;&amp;pos%1&lt;.98?1:0))+&quot;)&quot;);var op=ez(E(P0,P0+.5,t))*(1-ez(E(P1,P1+.5,t)));card.setAttribute(&quot;opacity&quot;,E(.2,.7,t)*(1-op));
+var dx=x-PX,dy=54-PY;pp.setAttribute(&quot;opacity&quot;,op);pp.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(dx*(1-op))+&quot; &quot;+(dy*(1-op))+&quot;) translate(&quot;+PX+&quot; &quot;+PY+&quot;) scale(&quot;+(.25+.75*op)+&quot;) translate(&quot;+(-PX)+&quot; &quot;+(-PY)+&quot;)&quot;);
+PR.forEach(function(g,k){g.setAttribute(&quot;opacity&quot;,E(P0+.5+k*.3,P0+.75+k*.3,t))});
+bar.setAttribute(&quot;width&quot;,Math.max(0,(x-X(0))/(X(6)-X(0))*1624));C(t,SC);all.setAttribute(&quot;opacity&quot;,1-E(17,17.5,t))});
 &lt;/script&gt;"></iframe>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7d86a3">Управление качеством продукции · 4</p>
-<aside class="notes">Начало — Конструктор: в «Перечне продукции» он задаёт, что и как контролировать по номенклатуре. Дальше карточка становится партией и «едет» по этапам, этап загорается, под ним появляется итог, внизу подпись объясняет шаг. Без слов видно: весь путь продукции — в одной программе.</aside>
+<aside class="notes">На «Снабжении» карточка раскрывается в паспорт партии (номенклатура, количество, поставщик, документ о качестве, плавка) — так видно, что такое партия; потом сворачивается и едет дальше. Начало — Конструктор: в «Перечне продукции» он задаёт, что и как контролировать по номенклатуре. Дальше карточка становится партией и «едет» по этапам, этап загорается, под ним появляется итог, внизу подпись объясняет шаг. Без слов видно: весь путь продукции — в одной программе.</aside>
 </section>
 </div>
 <div class="sl"><section id="zayavka" data-transition="fade" style="background:#171d2c;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
@@ -1490,7 +1497,7 @@ requestAnimationFrame(f);
 </div>
 </div><div id="pzb">⏸ Пауза · пробел или ▶ — продолжить</div><div id="tip">↻ Поверните телефон горизонтально — слайд будет на весь экран</div>
 <div id="nav"><button class="pv" aria-label="Назад">‹</button><span id="cnt"></span><button class="nx" aria-label="Дальше">›</button><button class="pz" aria-label="Пауза">⏸</button><button class="fs" aria-label="Весь экран">⛶</button><button class="nt" aria-label="Заметки">✎</button></div>
-<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 11.11 13:59</div>
+<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 11.11 14:09</div>
 <script>
 var S=[].slice.call(document.querySelectorAll("#stage>.sl")),i=0,st=document.getElementById("stage"),nav=document.getElementById("nav"),cnt=document.getElementById("cnt"),rot=false,
  touch=matchMedia("(pointer:coarse)").matches,hideT;
