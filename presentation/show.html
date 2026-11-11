@@ -181,11 +181,11 @@ var F=[[&quot;Журнал.xlsx&quot;,&quot;#3f9c6b&quot;,130,90,-8],[&quot;Ак
 var tang=[[0,2],[1,3],[2,4],[3,5],[0,4],[1,5],[0,3]].map(function(p){return el(&quot;path&quot;,{fill:&quot;none&quot;,stroke:&quot;#ff7f7a&quot;,&quot;stroke-width&quot;:2,&quot;stroke-dasharray&quot;:&quot;6 8&quot;,opacity:.4},tg)});
 var tiles=F.map(function(f,i){var g=el(&quot;g&quot;,{},tg);el(&quot;rect&quot;,{x:-112,y:-38,width:224,height:76,rx:12,fill:&quot;#e9ecf3&quot;},g);el(&quot;rect&quot;,{x:-112,y:-38,width:16,height:76,rx:6,fill:f[1]},g);
 tx(g,-82,9,24,700,&quot;#1c2233&quot;,f[0]);if(i%2==0){el(&quot;circle&quot;,{cx:100,cy:-34,r:20,fill:&quot;#ff7f7a&quot;},g);tx(g,100,-26,26,800,&quot;#16171b&quot;,&quot;?&quot;,&quot;middle&quot;)}return g});
-var N=[[&quot;ОТК&quot;,120,90,&quot;#a6a1f7&quot;],[&quot;Снабжение&quot;,120,320,&quot;#ffd27a&quot;],[&quot;Конструктор&quot;,120,550,&quot;#f0a6c8&quot;],[&quot;Лаборатория&quot;,892,90,&quot;#7fb8f0&quot;],[&quot;Метрология&quot;,892,320,&quot;#ff7f7a&quot;],[&quot;Телефон ОТК&quot;,892,550,&quot;#6dc4a2&quot;]];
+var N=[[&quot;ОТК&quot;,120,90,&quot;#a6a1f7&quot;],[&quot;Снабжение&quot;,120,320,&quot;#ffd27a&quot;],[&quot;Конструктор&quot;,120,550,&quot;#f0a6c8&quot;],[&quot;Лаборатория&quot;,892,90,&quot;#7fb8f0&quot;],[&quot;Метрология&quot;,892,320,&quot;#ff7f7a&quot;],[&quot;Мобильная версия|для ОТК&quot;,892,550,&quot;#6dc4a2&quot;]];
 var ln=document.getElementById(&quot;ln&quot;),pk=document.getElementById(&quot;pk&quot;),nd=document.getElementById(&quot;nd&quot;),sv=document.getElementById(&quot;sv&quot;);
 var it=N.map(function(n){var dx=n[1]-CX,dy=n[2]-CY,len=Math.sqrt(dx*dx+dy*dy);
 var l=el(&quot;line&quot;,{x1:CX,y1:CY,x2:n[1],y2:n[2],stroke:n[3],&quot;stroke-width&quot;:3,&quot;stroke-opacity&quot;:.55,&quot;stroke-dasharray&quot;:len+&quot; &quot;+len},ln);var p=el(&quot;circle&quot;,{r:7,fill:n[3],filter:&quot;url(#g)&quot;},pk);
-var g=el(&quot;g&quot;,{},nd);el(&quot;rect&quot;,{x:n[1]-115,y:n[2]-38,width:230,height:76,rx:16,fill:&quot;#1d2335&quot;,stroke:n[3],&quot;stroke-width&quot;:3},g);tx(g,n[1],n[2]+9,26,700,&quot;#eef0f6&quot;,n[0],&quot;middle&quot;);
+var g=el(&quot;g&quot;,{},nd);el(&quot;rect&quot;,{x:n[1]-115,y:n[2]-38,width:230,height:76,rx:16,fill:&quot;#1d2335&quot;,stroke:n[3],&quot;stroke-width&quot;:3},g);var nl=n[0].split(&quot;|&quot;);if(nl.length&gt;1){tx(g,n[1],n[2]-5,21,700,&quot;#eef0f6&quot;,nl[0],&quot;middle&quot;);tx(g,n[1],n[2]+22,21,700,&quot;#eef0f6&quot;,nl[1],&quot;middle&quot;)}else tx(g,n[1],n[2]+9,26,700,&quot;#eef0f6&quot;,n[0],&quot;middle&quot;);
 return {n:n,l:l,p:p,g:g,len:len,dx:dx,dy:dy}});
 var sg=el(&quot;g&quot;,{},sv);el(&quot;rect&quot;,{x:CX-125,y:CY-68,width:250,height:136,rx:22,fill:&quot;#283047&quot;,stroke:&quot;#ffd27a&quot;,&quot;stroke-width&quot;:4,filter:&quot;url(#g)&quot;},sg);
 tx(sg,CX,CY-6,32,800,&quot;#ffd27a&quot;,&quot;Сервер&quot;,&quot;middle&quot;);tx(sg,CX,CY+32,24,600,&quot;#c8cde0&quot;,&quot;одна общая база&quot;,&quot;middle&quot;);
@@ -1490,7 +1490,7 @@ requestAnimationFrame(f);
 </div>
 </div><div id="pzb">⏸ Пауза · пробел или ▶ — продолжить</div><div id="tip">↻ Поверните телефон горизонтально — слайд будет на весь экран</div>
 <div id="nav"><button class="pv" aria-label="Назад">‹</button><span id="cnt"></span><button class="nx" aria-label="Дальше">›</button><button class="pz" aria-label="Пауза">⏸</button><button class="fs" aria-label="Весь экран">⛶</button><button class="nt" aria-label="Заметки">✎</button></div>
-<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 11.11 13:52</div>
+<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 11.11 13:59</div>
 <script>
 var S=[].slice.call(document.querySelectorAll("#stage>.sl")),i=0,st=document.getElementById("stage"),nav=document.getElementById("nav"),cnt=document.getElementById("cnt"),rot=false,
  touch=matchMedia("(pointer:coarse)").matches,hideT;
