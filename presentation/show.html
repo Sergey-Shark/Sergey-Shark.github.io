@@ -303,7 +303,7 @@ body.vkp *{animation-play-state:paused!important}
 &lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 2 · Путь продукции</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Заявка на проверку качества</h2>
-<p style="font-size:32px;line-height:1.4;color:#a9b0c6">Программа сама считает выборку, подсказывает риски и ведёт по маршруту</p>
+<p style="font-size:32px;line-height:1.4;color:#a9b0c6">Программа сама считает, сколько изделий проверить, и подсказывает риски</p>
 <iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1664&quot; height=&quot;570&quot; viewBox=&quot;0 0 1664 570&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;6&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
@@ -320,19 +320,27 @@ function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);
 var all=document.getElementById(&quot;all&quot;);
 el(&quot;rect&quot;,{x:0,y:0,width:1100,height:470,rx:20,fill:&quot;#1d2335&quot;,stroke:&quot;#313a54&quot;,&quot;stroke-width&quot;:2},all);
 tx(all,28,50,30,800,&quot;#ffd27a&quot;,&quot;Заявка ОТК № 41&quot;);tx(all,28,86,24,500,&quot;#a9b0c6&quot;,&quot;Поставщик А · поставка от 03.11&quot;);
-[[&quot;Продукция&quot;,28],[&quot;Кол-во&quot;,520],[&quot;% контроля&quot;,660],[&quot;Объём&quot;,860]].forEach(function(h){tx(all,h[1],134,24,800,&quot;#6dc4a2&quot;,h[0])});el(&quot;line&quot;,{x1:20,y1:148,x2:1080,y2:148,stroke:&quot;#313a54&quot;,&quot;stroke-width&quot;:2},all);
+[[&quot;Продукция&quot;,28],[&quot;Кол-во&quot;,520],[&quot;Проверить, %&quot;,660],[&quot;Проверить, шт.&quot;,860]].forEach(function(h){tx(all,h[1],134,24,800,&quot;#6dc4a2&quot;,h[0])});el(&quot;line&quot;,{x1:20,y1:148,x2:1080,y2:148,stroke:&quot;#313a54&quot;,&quot;stroke-width&quot;:2},all);
 var D=[[&quot;Тройник 159×6&quot;,&quot;10 шт&quot;,&quot;10 %&quot;,&quot;1 шт&quot;],[&quot;Отвод 90° 159×6&quot;,&quot;20 шт&quot;,&quot;10 %&quot;,&quot;2 шт&quot;],[&quot;Лист 10 мм&quot;,&quot;120 кг&quot;,&quot;100 %&quot;,&quot;120 кг&quot;]],rows=[];
 D.forEach(function(d,i){var y=158+i*60,g=el(&quot;g&quot;,{},all);el(&quot;rect&quot;,{x:20,y:y,width:1060,height:50,rx:10,fill:&quot;#171d2c&quot;},g);tx(g,28,y+34,26,700,&quot;#eef0f6&quot;,d[0]);tx(g,520,y+34,24,600,&quot;#eef0f6&quot;,d[1]);
 var a=el(&quot;g&quot;,{},all);var hl=el(&quot;rect&quot;,{x:650,y:y+6,width:340,height:38,rx:8,fill:&quot;#ffd27a&quot;},a);tx(a,660,y+34,24,800,&quot;#eef0f6&quot;,d[2]);tx(a,860,y+34,24,800,&quot;#eef0f6&quot;,d[3]);rows.push({g:g,a:a,hl:hl})});
 var wr=el(&quot;g&quot;,{},all);el(&quot;circle&quot;,{cx:1046,cy:243,r:18,fill:&quot;#ffd27a&quot;},wr);tx(wr,1046,251,24,900,&quot;#16171b&quot;,&quot;!&quot;,&quot;middle&quot;);
 var rk=el(&quot;g&quot;,{},all);el(&quot;rect&quot;,{x:20,y:350,width:1060,height:104,rx:16,fill:&quot;#741c55&quot;,stroke:&quot;#ff7f7a&quot;,&quot;stroke-width&quot;:2,filter:&quot;url(#g)&quot;},rk);
-tx(rk,44,392,26,800,&quot;#fff3df&quot;,&quot;▲ Риск поставщика: средний — 14 % партий с несоответствием&quot;);tx(rk,44,432,24,700,&quot;#ffd27a&quot;,&quot;Отвод 90°: рекомендуется ВИК 20 % вместо 10 %&quot;);
+tx(rk,44,392,26,800,&quot;#fff3df&quot;,&quot;▲ Риск поставщика: средний — 14 % партий с несоответствием&quot;);tx(rk,44,432,24,700,&quot;#ffd27a&quot;,&quot;Отвод 90°: рекомендуется проверить 4 шт. вместо 2&quot;);
 var RX=1140;tx(all,RX,40,28,800,&quot;#eef0f6&quot;,&quot;Маршрут заявки&quot;);
 var ST=[&quot;Позиции&quot;,&quot;Задания ОТК&quot;,&quot;Акты несоответствия&quot;,&quot;Лаборатория (ИЛ)&quot;],sts=ST.map(function(s,i){var y=90+i*72,g=el(&quot;g&quot;,{},all);if(i&lt;3)el(&quot;line&quot;,{x1:RX+22,y1:y+22,x2:RX+22,y2:y+50,stroke:&quot;#313a54&quot;,&quot;stroke-width&quot;:4},all);
 var c=el(&quot;circle&quot;,{cx:RX+22,cy:y,r:20,fill:&quot;#283047&quot;,&quot;stroke-width&quot;:4},g),n=tx(g,RX+22,y+9,22,800,&quot;#a9b0c6&quot;,String(i+1),&quot;middle&quot;);tx(g,RX+58,y+9,26,700,&quot;#eef0f6&quot;,s);return {c:c,n:n}});
 var nx=el(&quot;g&quot;,{},all);el(&quot;rect&quot;,{x:RX,y:384,width:524,height:70,rx:16,fill:&quot;#2a2418&quot;,stroke:&quot;#ffd27a&quot;,&quot;stroke-width&quot;:3},nx);tx(nx,RX+20,428,24,700,&quot;#ffd27a&quot;,&quot;Следующий шаг: выдать задания ВИК&quot;);
-var C=cap(all,0,500,1664),S=[[0,&quot;Позиции заявки: программа сама считает объём выборки&quot;],[3.2,&quot;Плашка риска: подсказка по поставщику и по позициям&quot;],[6,&quot;Маршрут заявки: что сделано и что дальше&quot;],[8.8,&quot;«Следующий шаг» — всегда понятно, кто что должен сделать&quot;]];
-loop(13,function(t){
+// Наглядно, что такое «проверить, %»: из 20 отводов проверяем 2, лист по весу — весь (владелец)
+var D=3.5,Q0=2.9,vz=el(&quot;g&quot;,{},all);el(&quot;rect&quot;,{x:22,y:274,width:1060,height:186,rx:20,fill:&quot;#0d1018&quot;,stroke:&quot;#6dc4a2&quot;,&quot;stroke-width&quot;:3,filter:&quot;url(#g)&quot;},vz);
+var t1=el(&quot;text&quot;,{x:50,y:314,&quot;font-size&quot;:25,&quot;font-weight&quot;:800,fill:&quot;#eef0f6&quot;},vz);t1.innerHTML=&#x27;Отвод 90° · 20 шт. → &lt;tspan fill=&quot;#6dc4a2&quot;&gt;проверяем 2 (10 %)&lt;/tspan&gt;&lt;tspan fill=&quot;#a9b0c6&quot; font-size=&quot;20&quot; font-weight=&quot;600&quot;&gt; · остальные 18 — без проверки&lt;/tspan&gt;&#x27;;
+var sqs=[];for(var q=0;q&lt;20;q++)sqs.push(el(&quot;rect&quot;,{x:50+q*40,y:330,width:32,height:32,rx:7,fill:&quot;#283047&quot;},vz));
+var t2=el(&quot;text&quot;,{x:50,y:406,&quot;font-size&quot;:25,&quot;font-weight&quot;:800,fill:&quot;#eef0f6&quot;},vz);t2.innerHTML=&#x27;Лист 10 мм · 120 кг → &lt;tspan fill=&quot;#6dc4a2&quot;&gt;проверяем всё (100 %)&lt;/tspan&gt;&#x27;;
+el(&quot;rect&quot;,{x:50,y:420,width:1004,height:24,rx:8,fill:&quot;#283047&quot;},vz);var vb=el(&quot;rect&quot;,{x:50,y:420,width:0,height:24,rx:8,fill:&quot;#6dc4a2&quot;,filter:&quot;url(#g)&quot;},vz);
+var C=cap(all,0,500,1664),S=[[0,&quot;Позиции заявки: программа сама считает, сколько изделий проверить&quot;],[Q0,&quot;Проверяют не всю партию, а часть: 10 %, но не меньше 1 шт.; по весу и длине — всё&quot;],[6.7,&quot;Плашка риска: подсказка по поставщику и по позициям&quot;],[9.5,&quot;Маршрут заявки: что сделано и что дальше&quot;],[12.3,&quot;«Следующий шаг» — всегда понятно, кто что должен сделать&quot;]];
+loop(16.5,function(T0){var t=T0&lt;Q0?T0:(T0&lt;Q0+D?Q0:T0-D),vo=ez(E(Q0,Q0+.4,T0))*(1-ez(E(Q0+D-.5,Q0+D-.1,T0)));
+vz.setAttribute(&quot;opacity&quot;,vo);vz.setAttribute(&quot;transform&quot;,&quot;translate(0 &quot;+(16*(1-vo))+&quot;)&quot;);
+sqs.forEach(function(r,q){var on=q&lt;2&amp;&amp;T0&gt;Q0+.6+q*.35;r.setAttribute(&quot;fill&quot;,on?&quot;#6dc4a2&quot;:&quot;#283047&quot;);r.setAttribute(&quot;filter&quot;,on?&quot;url(#g)&quot;:&quot;none&quot;)});vb.setAttribute(&quot;width&quot;,1004*ez(E(Q0+1.5,Q0+2.2,T0)));
 rows.forEach(function(r,i){var p=ez(E(.3+i*.4,.8+i*.4,t));r.g.setAttribute(&quot;opacity&quot;,p);r.g.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(-30*(1-p))+&quot; 0)&quot;);r.a.setAttribute(&quot;opacity&quot;,E(1.6+i*.4,1.9+i*.4,t));
 r.hl.setAttribute(&quot;opacity&quot;,.35*Math.max(0,1-Math.abs(t-(1.9+i*.4))*1.5))});
 var rp=ez(E(3.2,3.8,t));rk.setAttribute(&quot;opacity&quot;,rp);rk.setAttribute(&quot;transform&quot;,&quot;translate(0 &quot;+(20*(1-rp))+&quot;)&quot;);wr.setAttribute(&quot;opacity&quot;,E(3.9,4.1,t)*(.7+.3*Math.sin(t*6)));
@@ -340,10 +348,10 @@ sts.forEach(function(s,i){var st=t&lt;6?&quot;off&quot;:i==0?(t&gt;6.3?&quot;don
 s.c.setAttribute(&quot;stroke&quot;,col);s.c.setAttribute(&quot;fill&quot;,st==&quot;done&quot;?&quot;#6dc4a2&quot;:st==&quot;now&quot;?&quot;#2a2418&quot;:&quot;#283047&quot;);s.n.textContent=st==&quot;done&quot;?&quot;✓&quot;:String(i+1);s.n.setAttribute(&quot;fill&quot;,st==&quot;done&quot;?&quot;#16171b&quot;:st==&quot;now&quot;?&quot;#ffd27a&quot;:&quot;#a9b0c6&quot;);
 s.c.setAttribute(&quot;r&quot;,st==&quot;now&quot;?20+3*Math.sin(t*5):20)});
 var np=ez(E(8.8,9.4,t));nx.setAttribute(&quot;opacity&quot;,np);nx.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(30*(1-np))+&quot; 0)&quot;);
-C(t,S);all.setAttribute(&quot;opacity&quot;,E(0,.3,t)*(1-E(12.4,12.95,t)))});
+C(T0,S);all.setAttribute(&quot;opacity&quot;,E(0,.3,t)*(1-E(12.4,12.95,t)))});
 &lt;/script&gt;"></iframe>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7d86a3">Управление качеством продукции · 5 · условные данные</p>
-<aside class="notes">Позиции заявки появляются, программа сама ставит % контроля и объём (10 %, не менее 1 шт.; для кг, м, л — сплошной контроль). Выезжает плашка риска с рекомендацией по позиции. Маршрут заявки показывает, что сделано и что дальше, и «Следующий шаг».</aside>
+<aside class="notes">Позиции заявки появляются; затем панель показывает, что значит «проверить, %»: из 20 отводов загораются 2 — их проверяют, у листа по весу заполняется вся полоса — проверяют всё. Дальше: программа сама ставит % контроля и объём (10 %, не менее 1 шт.; для кг, м, л — сплошной контроль). Выезжает плашка риска с рекомендацией по позиции. Маршрут заявки показывает, что сделано и что дальше, и «Следующий шаг».</aside>
 </section>
 </div>
 <div class="sl"><section id="zadaniya" data-transition="fade" style="background:#12151f;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
@@ -1497,7 +1505,7 @@ requestAnimationFrame(f);
 </div>
 </div><div id="pzb">⏸ Пауза · пробел или ▶ — продолжить</div><div id="tip">↻ Поверните телефон горизонтально — слайд будет на весь экран</div>
 <div id="nav"><button class="pv" aria-label="Назад">‹</button><span id="cnt"></span><button class="nx" aria-label="Дальше">›</button><button class="pz" aria-label="Пауза">⏸</button><button class="fs" aria-label="Весь экран">⛶</button><button class="nt" aria-label="Заметки">✎</button></div>
-<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 11.11 14:10</div>
+<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 11.11 14:19</div>
 <script>
 var S=[].slice.call(document.querySelectorAll("#stage>.sl")),i=0,st=document.getElementById("stage"),nav=document.getElementById("nav"),cnt=document.getElementById("cnt"),rot=false,
  touch=matchMedia("(pointer:coarse)").matches,hideT;
