@@ -17,6 +17,9 @@ aside.notes{display:none}body.notes aside.notes{display:block;position:absolute;
 #cnt{color:#eef0f6;font:700 17px Manrope,Arial;min-width:64px;text-align:center}
 #tip{position:fixed;left:16px;right:16px;bottom:calc(84px + env(safe-area-inset-bottom));text-align:center;color:#a9b0c6;font:600 15px Manrope,Arial;display:none}
 body.port #tip{display:block}
+#pzb{position:fixed;left:50%;top:calc(12px + env(safe-area-inset-top));transform:translateX(-50%);padding:6px 14px;border-radius:20px;background:#ffd27a;color:#16171b;font:800 14px Manrope,Arial;display:none;z-index:40}
+body.paused #pzb{display:block}
+#nav .pz{font-size:18px}
 #help{position:fixed;right:16px;bottom:12px;color:#7d86a3;font:14px Manrope,Arial;opacity:.7}
 @media (pointer:coarse){#help{display:none}}
 </style></head><body><div id="stage"><div class="sl"><section id="cover" data-transition="fade" style="background:#12151f;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:center;gap:32px">
@@ -32,6 +35,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:250px;top:1050px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -39,7 +43,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <iframe class="emb" style="position:absolute;left:1032px;top:160px;width:760px;height:760px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}svg{display:block}&lt;/style&gt;
 &lt;svg width=&quot;760&quot; height=&quot;760&quot; viewBox=&quot;0 0 760 760&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;7&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;g id=&quot;trk&quot;&gt;&lt;/g&gt;&lt;g id=&quot;dots&quot;&gt;&lt;/g&gt;&lt;g id=&quot;arcs&quot;&gt;&lt;/g&gt;&lt;g id=&quot;lbl&quot;&gt;&lt;/g&gt;&lt;circle id=&quot;core&quot; cx=&quot;380&quot; cy=&quot;380&quot; r=&quot;10&quot; fill=&quot;#ffd27a&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
@@ -51,7 +55,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var R=[150,215,280],C=[&quot;#a6a1f7&quot;,&quot;#6dc4a2&quot;,&quot;#7fb8f0&quot;],L=[[&quot;ДК&quot;,&quot;документы&quot;],[&quot;ВИК&quot;,&quot;осмотр и замеры&quot;],[&quot;ИЛ&quot;,&quot;испытания&quot;]];
 var trk=document.getElementById(&quot;trk&quot;),dg=document.getElementById(&quot;dots&quot;),ag=document.getElementById(&quot;arcs&quot;),lg=document.getElementById(&quot;lbl&quot;),all=document.getElementById(&quot;all&quot;),core=document.getElementById(&quot;core&quot;);
 var seed=7;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}
@@ -88,6 +93,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:1780px;top:120px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -95,7 +101,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 1 · Зачем</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Что хотели получить</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Четыре цели, ради которых делалась программа</p>
@@ -110,7 +116,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;),W=392;
 var G=[[&quot;Одна база&quot;,&quot;всё в одном месте,&quot;,&quot;а не в десятке файлов&quot;,&quot;#a6a1f7&quot;],[&quot;Прозрачный путь&quot;,&quot;где партия сейчас&quot;,&quot;и кто её держит&quot;,&quot;#6dc4a2&quot;],[&quot;Решения по данным&quot;,&quot;риски, дефекты,&quot;,&quot;сроки — в цифрах&quot;,&quot;#7fb8f0&quot;],[&quot;Меньше ручной работы&quot;,&quot;расчёты, документы,&quot;,&quot;ярлыки — сами&quot;,&quot;#ffd27a&quot;]];
 var cards=G.map(function(g0,i){var x=i*424,g=el(&quot;g&quot;,{},all),r=el(&quot;rect&quot;,{x:x,y:0,width:W,height:460,rx:22,fill:&quot;#1d2335&quot;,&quot;stroke-width&quot;:3},g);
@@ -147,6 +154,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:150px;top:950px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -154,7 +162,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <iframe class="emb" style="position:absolute;left:780px;top:170px;width:1012px;height:740px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1012&quot; height=&quot;740&quot; viewBox=&quot;0 0 1012 740&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;g id=&quot;tg&quot;&gt;&lt;/g&gt;&lt;g id=&quot;ln&quot;&gt;&lt;/g&gt;&lt;g id=&quot;pk&quot;&gt;&lt;/g&gt;&lt;g id=&quot;nd&quot;&gt;&lt;/g&gt;&lt;g id=&quot;sv&quot;&gt;&lt;/g&gt;&lt;g id=&quot;cp&quot;&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
@@ -166,7 +174,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var CX=506,CY=320,all=document.getElementById(&quot;all&quot;),tg=document.getElementById(&quot;tg&quot;);
 var F=[[&quot;Журнал.xlsx&quot;,&quot;#3f9c6b&quot;,130,90,-8],[&quot;Акт.docx&quot;,&quot;#4a78c9&quot;,560,70,6],[&quot;Протокол.pdf&quot;,&quot;#d0554f&quot;,860,230,-5],[&quot;Письмо&quot;,&quot;#c9a04a&quot;,190,400,9],[&quot;График МК.xlsx&quot;,&quot;#3f9c6b&quot;,640,470,-4],[&quot;Бумага&quot;,&quot;#8a90a6&quot;,420,250,4]];
 var tang=[[0,2],[1,3],[2,4],[3,5],[0,4],[1,5],[0,3]].map(function(p){return el(&quot;path&quot;,{fill:&quot;none&quot;,stroke:&quot;#ff7f7a&quot;,&quot;stroke-width&quot;:2,&quot;stroke-dasharray&quot;:&quot;6 8&quot;,opacity:.4},tg)});
@@ -210,6 +219,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:1800px;top:80px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -217,7 +227,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 2 · Путь продукции</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Путь одной партии</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Каждый шаг — в одной программе: от параметров контроля до записи в Реестре</p>
@@ -232,7 +242,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;),BY=124;
 var S=[[&quot;Конструктор&quot;,&quot;параметры&quot;,&quot;контроля&quot;,&quot;Перечень ✓&quot;],[&quot;Снабжение&quot;,&quot;задание&quot;,&quot;на приём&quot;,&quot;документы ✓&quot;],[&quot;Заявка ОТК&quot;,&quot;позиции,&quot;,&quot;риск поставщика&quot;,&quot;риск: низкий&quot;],[&quot;Задания&quot;,&quot;ВИК и ДК&quot;,&quot;исполнителям&quot;,&quot;2 задания&quot;],[&quot;Результаты&quot;,&quot;пункты, фото,&quot;,&quot;ярлыки&quot;,&quot;ВИК ✓  ДК ✓&quot;],[&quot;Лаборатория&quot;,&quot;испытания&quot;,&quot;и протокол&quot;,&quot;ИЛ ✓&quot;],[&quot;Реестр&quot;,&quot;качества&quot;,&quot;поставок&quot;,&quot;СООТВЕТСТВУЕТ&quot;]];
 var IC=[&quot;M0 -32 v8 M0 -24 L-18 28 M0 -24 L18 28 M-12 10 h24&quot;,&quot;M-26 -14 L0 -26 L26 -14 L26 16 L0 28 L-26 16 Z M-26 -14 L0 -2 L26 -14 M0 -2 L0 28&quot;,&quot;M-22 -24 h44 v54 h-44 Z M-10 -30 h20 v10 h-20 Z M-12 -6 h24 M-12 6 h24 M-12 18 h14&quot;,&quot;M-12 -12 m-9 0 a9 9 0 1 0 18 0 a9 9 0 1 0 -18 0 M14 -14 m-8 0 a8 8 0 1 0 16 0 a8 8 0 1 0 -16 0 M-30 26 q18 -30 36 0 M2 22 q14 -26 30 0&quot;,&quot;M-6 -6 m-18 0 a18 18 0 1 0 36 0 a18 18 0 1 0 -36 0 M7 7 L26 26&quot;,&quot;M-8 -28 h16 M-6 -28 v18 L-24 22 q-2 8 6 8 h36 q8 0 6 -8 L6 -10 v-18 M-15 10 h30&quot;,&quot;M-28 -22 h56 v46 h-56 Z M-28 -8 h56 M-28 6 h56 M-6 -22 v46&quot;];
@@ -274,6 +285,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:140px;top:980px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -281,7 +293,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 2 · Путь продукции</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Заявка на проверку качества</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Программа сама считает выборку, подсказывает риски и ведёт по маршруту</p>
@@ -296,7 +308,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;);
 el(&quot;rect&quot;,{x:0,y:0,width:1100,height:470,rx:20,fill:&quot;#1d2335&quot;,stroke:&quot;#313a54&quot;,&quot;stroke-width&quot;:2},all);
 tx(all,28,50,30,800,&quot;#ffd27a&quot;,&quot;Заявка ОТК № 41&quot;);tx(all,28,86,24,500,&quot;#a9b0c6&quot;,&quot;Поставщик А · поставка от 03.11&quot;);
@@ -339,6 +352,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:1760px;top:980px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -346,7 +360,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 2 · Путь продукции</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Задания и результаты контроля</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Кому что проверять — и как фиксируется каждый пункт</p>
@@ -361,7 +375,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;),A=document.getElementById(&quot;A&quot;),B=document.getElementById(&quot;B&quot;);
 tx(A,0,30,26,800,&quot;#a9b0c6&quot;,&quot;Позиции заявки&quot;);tx(A,1080,30,26,800,&quot;#a9b0c6&quot;,&quot;Исполнители&quot;);
 var P=[[&quot;Тройник 159×6&quot;,&quot;ВИК&quot;,&quot;#6dc4a2&quot;],[&quot;Отвод 90°&quot;,&quot;ВИК&quot;,&quot;#6dc4a2&quot;],[&quot;Тройник 159×6&quot;,&quot;ДК&quot;,&quot;#a6a1f7&quot;]],M=[[&quot;Контролёр 1&quot;,&quot;Задание ВИК № 12&quot;],[&quot;Контролёр 2&quot;,&quot;Задание ВИК № 13&quot;],[&quot;Инженер&quot;,&quot;Задание ДК № 14&quot;]];
@@ -404,6 +419,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:120px;top:980px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -411,7 +427,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <iframe class="emb" style="position:absolute;left:680px;top:150px;width:1112px;height:780px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
 &lt;svg width=&quot;1112&quot; height=&quot;780&quot; viewBox=&quot;0 0 1112 780&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;6&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;clipPath id=&quot;cl&quot;&gt;&lt;rect x=&quot;0&quot; y=&quot;96&quot; width=&quot;1112&quot; height=&quot;700&quot;/&gt;&lt;/clipPath&gt;&lt;clipPath id=&quot;ph&quot;&gt;&lt;rect x=&quot;22&quot; y=&quot;70&quot; width=&quot;336&quot; height=&quot;440&quot; rx=&quot;10&quot;/&gt;&lt;/clipPath&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
@@ -423,7 +439,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;);var seed=11;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}
 function qr(p,x,y,m){el(&quot;rect&quot;,{x:x-6,y:y-6,width:21*m+12,height:21*m+12,fill:&quot;#ffffff&quot;,rx:4},p);for(var r=0;r&lt;21;r++)for(var c=0;c&lt;21;c++){var on;
 if((r&lt;7&amp;&amp;c&lt;7)||(r&lt;7&amp;&amp;c&gt;13)||(r&gt;13&amp;&amp;c&lt;7)){var rr=r&gt;13?r-14:r,cc=c&gt;13?c-14:c;on=(rr==0||rr==6||cc==0||cc==6||(rr&gt;1&amp;&amp;rr&lt;5&amp;&amp;cc&gt;1&amp;&amp;cc&lt;5))}else on=rnd()&gt;.52;
@@ -475,6 +492,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:1780px;top:960px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -482,7 +500,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 2 · Путь продукции</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Мобильная версия контролёра</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Проверка на складе — с телефона, результат сразу в программе</p>
@@ -497,7 +515,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;),PX=260;
 el(&quot;rect&quot;,{x:PX,y:0,width:330,height:484,rx:40,fill:&quot;#0d1018&quot;,stroke:&quot;#6b7698&quot;,&quot;stroke-width&quot;:4,filter:&quot;url(#g)&quot;},all);el(&quot;rect&quot;,{x:PX+125,y:20,width:80,height:10,rx:5,fill:&quot;#283047&quot;},all);
 var scr=el(&quot;g&quot;,{&quot;clip-path&quot;:&quot;url(#sc)&quot;},all);el(&quot;rect&quot;,{x:276,y:50,width:298,height:404,fill:&quot;#171d2c&quot;},scr);
@@ -544,6 +563,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:160px;top:140px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -551,7 +571,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 2 · Путь продукции</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Реестр качества поставок</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Вместо Excel-журнала — живой реестр всех проверенных партий</p>
@@ -566,7 +586,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;);
 var K=[[&quot;Записей&quot;,1258,&quot;#ffd27a&quot;],[&quot;Поставщиков&quot;,81,&quot;#a6a1f7&quot;],[&quot;Актов&quot;,14,&quot;#ff7f7a&quot;]],kv=K.map(function(k,i){var x=i*300,g=el(&quot;g&quot;,{},all);el(&quot;rect&quot;,{x:x,y:0,width:280,height:84,rx:16,fill:&quot;#1d2335&quot;,stroke:&quot;#313a54&quot;,&quot;stroke-width&quot;:2},g);
 tx(g,x+20,34,22,600,&quot;#a9b0c6&quot;,k[0]);return {g:g,v:tx(g,x+20,72,34,800,k[2],&quot;0&quot;),n:k[1]}});
@@ -610,6 +631,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:1780px;top:1000px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -617,7 +639,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 3 · Несоответствия и решения</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Акт несоответствия: путь по решению</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Одно решение — и программа сама выбирает, через какие этапы пройдёт акт</p>
@@ -632,7 +654,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;),CY=270,P=7;
 var L=[[&quot;Оформлено&quot;],[&quot;Определение&quot;,&quot;мер&quot;],[&quot;Согласование&quot;,&quot;мер&quot;],[&quot;Выполнение&quot;,&quot;мер&quot;],[&quot;Повторное&quot;,&quot;предъявление&quot;],[&quot;Утверждение&quot;]];
 var D=[[&quot;Доработать&quot;,&quot;#ffd27a&quot;,[],&quot;Доработать: поставщик исправляет, партию предъявляют повторно — полный путь&quot;],[&quot;Брак&quot;,&quot;#ff7f7a&quot;,[4],&quot;Брак: повторно предъявлять нечего — этап пропускается&quot;],[&quot;Допустить&quot;,&quot;#73d29c&quot;,[3,4],&quot;Допустить: партию берут как есть — меры и повторная проверка не нужны&quot;]];
@@ -673,6 +696,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:120px;top:980px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -680,7 +704,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 3 · Несоответствия и решения</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Решения по позициям акта</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">У разных несоответствий — разные решения, а акт остаётся один</p>
@@ -695,7 +719,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;),CW=340;
 tx(all,60,34,26,800,&quot;#a9b0c6&quot;,&quot;Позиции акта&quot;);
 var GR=[[&quot;Решение 1 · Доработать&quot;,&quot;#ffd27a&quot;],[&quot;Решение 2 · Допустить&quot;,&quot;#73d29c&quot;],[&quot;Решение 3 · Брак&quot;,&quot;#ff7f7a&quot;]],gh=GR.map(function(g,i){var x=600+i*352,e=el(&quot;g&quot;,{},all);
@@ -733,6 +758,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:1800px;top:1000px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -740,7 +766,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 3 · Несоответствия и решения</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Ответственность и сроки</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Акт проходит через ОТК, производство и конструкторов — и всегда видно, у кого он</p>
@@ -755,7 +781,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;),AY=200,AX=[0,1,2,3,4,5,6,7].map(function(i){return 104+i*208});
 var DC={&quot;ОТК&quot;:&quot;#a6a1f7&quot;,&quot;Производство&quot;:&quot;#6dc4a2&quot;,&quot;Конструкторы&quot;:&quot;#7fb8f0&quot;,&quot;Управление&quot;:&quot;#ffd27a&quot;,&quot;Технологи&quot;:&quot;#f0a6c8&quot;};
 var P=[[&quot;Ведущий&quot;,&quot;инженер ОТК&quot;,&quot;ОТК&quot;],[&quot;Начальник&quot;,&quot;ОТК&quot;,&quot;ОТК&quot;],[&quot;Мастер&quot;,&quot;участка&quot;,&quot;Производство&quot;],[&quot;Конструктор&quot;,&quot;&quot;,&quot;Конструкторы&quot;],[&quot;Технолог&quot;,&quot;&quot;,&quot;Технологи&quot;],[&quot;Зам. начальника&quot;,&quot;управления&quot;,&quot;Управление&quot;],[&quot;Исполнитель&quot;,&quot;мер&quot;,&quot;Производство&quot;],[&quot;Контролёр&quot;,&quot;ОТК&quot;,&quot;ОТК&quot;]];
@@ -798,6 +825,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:120px;top:120px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -805,7 +833,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 3 · Несоответствия и решения</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Дефекты и причины</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Какие дефекты встречаются чаще всего — и с чего начинать улучшения</p>
@@ -820,7 +848,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;);
 var D=[[&quot;Д8&quot;,34,&quot;Механические повреждения&quot;],[&quot;Д2Л&quot;,27,&quot;Геометрия (линейные)&quot;],[&quot;Д5&quot;,18,&quot;Дефект покрытия&quot;],[&quot;Д11&quot;,14,&quot;Документы&quot;],[&quot;Д9&quot;,9],[&quot;Д10&quot;,6],[&quot;Д6&quot;,4],[&quot;Д4&quot;,3]];
 var ORD=[5,2,7,0,4,1,6,3],tot=0;D.forEach(function(d){tot+=d[1]});var X0=90,Y0=380,H=350,BW=92,GP=32,MX=34,NW=8*(BW+GP);
@@ -863,6 +892,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:1800px;top:960px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -870,7 +900,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#7fb8f0">Часть 4 · Лаборатория и Метрология</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Лаборатория: от заявки до акта</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Испытание, протокол и стоимость работ — без ручного пересчёта</p>
@@ -885,7 +915,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;),W=356;
 var H=[&quot;Заявка в ИЛ&quot;,&quot;Испытание&quot;,&quot;Протокол&quot;,&quot;Акт работ&quot;],F=[&quot;что испытать&quot;,&quot;растяжение образца&quot;,&quot;форма 790-1-1/ИЛ&quot;,&quot;выполненных работ&quot;],cards=[],arrows=[];
 H.forEach(function(h,i){var x=i*436,g=el(&quot;g&quot;,{},all);el(&quot;rect&quot;,{x:x,y:6,width:W,height:440,rx:20,fill:&quot;#1d2335&quot;,stroke:&quot;#313a54&quot;,&quot;stroke-width&quot;:3},g);
@@ -930,6 +961,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:100px;top:1000px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -937,7 +969,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ff7f7a">Часть 4 · Лаборатория и Метрология</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Метрология: конвейер МК</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Приборы сами переходят по колонкам — срок поверки не пропустить</p>
@@ -952,7 +984,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;),CW=392,GP=32,TOP=58;
 var dg=el(&quot;g&quot;,{},all);el(&quot;rect&quot;,{x:0,y:0,width:300,height:46,rx:23,fill:&quot;#1d2335&quot;,stroke:&quot;#313a54&quot;,&quot;stroke-width&quot;:2},dg);var day=tx(dg,150,32,24,700,&quot;#eef0f6&quot;,&quot;&quot;,&quot;middle&quot;);
 var C4=[[&quot;Просрочено&quot;,&quot;#ff7f7a&quot;],[&quot;Скоро МК&quot;,&quot;#ffd27a&quot;],[&quot;На МК&quot;,&quot;#7fb8f0&quot;],[&quot;В норме&quot;,&quot;#6dc4a2&quot;]],cnt=[];
@@ -989,6 +1022,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:1780px;top:140px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -996,7 +1030,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#a6a1f7">Часть 4 · Лаборатория и Метрология</p>
 <h2 style="font-size:64px;font-weight:800;line-height:1.1">Перечень продукции, подлежащей контролю</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Что и как контролировать — согласовано заранее для каждой номенклатуры</p>
@@ -1011,7 +1045,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;),CX=[440,670,900,1130],ST=[&quot;На оформлении&quot;,&quot;На проверке&quot;,&quot;На согласовании&quot;,&quot;Согласовано&quot;],RY=[110,230];
 ST.forEach(function(s,i){tx(all,CX[i],30,22,800,i==3?&quot;#73d29c&quot;:&quot;#a9b0c6&quot;,s,&quot;middle&quot;);if(i&lt;3)el(&quot;path&quot;,{d:&quot;M&quot;+(CX[i]+100)+&quot; 22 l14 0 m-6 -6 l6 6 l-6 6&quot;,stroke:&quot;#6b7698&quot;,&quot;stroke-width&quot;:3,fill:&quot;none&quot;},all)});
 el(&quot;line&quot;,{x1:320,y1:48,x2:1250,y2:48,stroke:&quot;#313a54&quot;,&quot;stroke-width&quot;:2},all);
@@ -1051,6 +1086,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:140px;top:140px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -1058,7 +1094,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 4 · Лаборатория и Метрология</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Снабжение: приём партии</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Партия приходит в ОТК сразу с документами — и итог возвращается снабжению</p>
@@ -1073,7 +1109,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;);
 el(&quot;rect&quot;,{x:0,y:0,width:660,height:420,rx:20,fill:&quot;#1d2335&quot;,stroke:&quot;#ffd27a&quot;,&quot;stroke-width&quot;:2},all);tx(all,24,44,26,800,&quot;#ffd27a&quot;,&quot;Снабжение · задание на приём&quot;);
 var F=[[&quot;Партия ТМЦ&quot;,&quot;24-121&quot;,1.4],[&quot;Плавка&quot;,&quot;Т-5521&quot;,2],[&quot;Документ о качестве&quot;,&quot;&quot;,3.4]],fs=F.map(function(f,i){var y=70+i*84,g=el(&quot;g&quot;,{},all);el(&quot;rect&quot;,{x:20,y:y,width:620,height:68,rx:12,fill:&quot;#171d2c&quot;,stroke:&quot;#313a54&quot;,&quot;stroke-width&quot;:2},g);
@@ -1113,6 +1150,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:960px;top:1150px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -1120,7 +1158,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 5 · Управление по данным</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Рабочие столы сотрудников</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Каждый открывает программу — и сразу видит своё</p>
@@ -1135,7 +1173,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var stg=document.getElementById(&quot;st&quot;),W=760,H=440;
 function card(title,col){var g=el(&quot;g&quot;,{},stg);el(&quot;rect&quot;,{x:-W/2,y:-H/2,width:W,height:H,rx:22,fill:&quot;#1d2335&quot;,stroke:col,&quot;stroke-width&quot;:4},g);el(&quot;rect&quot;,{x:-W/2,y:-H/2,width:W,height:64,rx:22,fill:col},g);
 el(&quot;rect&quot;,{x:-W/2,y:-H/2+40,width:W,height:24,fill:col},g);tx(g,-W/2+28,-H/2+42,28,800,&quot;#16171b&quot;,title);return g}
@@ -1177,6 +1216,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:1820px;top:100px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -1184,7 +1224,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 5 · Управление по данным</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Управление рисками поставщиков</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Риск — по доле партий с несоответствием за 12 месяцев</p>
@@ -1199,7 +1239,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;);
 var S=[[&quot;Поставщик А&quot;,4],[&quot;Поставщик Б&quot;,8],[&quot;Поставщик В&quot;,14],[&quot;Поставщик Г&quot;,25],[&quot;Поставщик Д&quot;,6],[&quot;Поставщик Е&quot;,17]];
 var M=[&quot;Д&quot;,&quot;Я&quot;,&quot;Ф&quot;,&quot;М&quot;,&quot;А&quot;,&quot;М&quot;,&quot;И&quot;,&quot;И&quot;,&quot;А&quot;,&quot;С&quot;,&quot;О&quot;,&quot;Н&quot;],RY=function(i){return 52+i*70};
@@ -1241,6 +1282,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:150px;top:1000px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -1248,7 +1290,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 5 · Управление по данным</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Метод контроля по ГОСТ Р ИСО 2859-1</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Сколько изделий проверять и когда ужесточать контроль — по правилам стандарта</p>
@@ -1263,7 +1305,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;),GX=700,BY=250;
 var MO=[[&quot;Нормальный&quot;,50,&quot;#6dc4a2&quot;],[&quot;Усиленный&quot;,80,&quot;#ff7f7a&quot;],[&quot;Ослабленный&quot;,32,&quot;#7fb8f0&quot;]];
 var pills=MO.map(function(m,i){var g=el(&quot;g&quot;,{},all),x=i*300;var r=el(&quot;rect&quot;,{x:x,y:0,width:280,height:64,rx:32,&quot;stroke-width&quot;:3,stroke:m[2]},g);
@@ -1311,6 +1354,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:1700px;top:920px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -1318,7 +1362,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 6 · Итог</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Программа в цифрах</h2>
 <iframe class="emb" style="position:absolute;left:128px;top:340px;width:1664px;height:580px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden;font-family:&quot;Segoe UI&quot;,Arial,sans-serif;color:#eef0f6}
@@ -1330,8 +1374,8 @@ var D=[[1258,&quot;записей в Реестре качества&quot;,&quot
 D.forEach(function(d){var t=document.createElement(&quot;div&quot;);t.className=&quot;t&quot;;t.style.setProperty(&quot;--c&quot;,d[2]);t.innerHTML=&#x27;&lt;div class=&quot;n&quot;&gt;0&lt;/div&gt;&lt;div class=&quot;l&quot;&gt;&#x27;+d[1]+&#x27;&lt;/div&gt;&#x27;;g.appendChild(t);it.push({t:t,n:t.querySelector(&quot;.n&quot;),v:d[0]})});
 function E(a,b,t){return Math.min(1,Math.max(0,(t-a)/(b-a)))}function ez(x){return 1-Math.pow(1-x,3)}
 function fmt(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,&quot; &quot;)}
-var t0=null,last=0;
-function f(now){if(t0===null||now-last&gt;400)t0=now;last=now;var t=Math.max(0,(now-t0)/1000)%T;
+var el=0,last=null,vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function f(now){if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;var t=Math.max(0,el/1000)%T;
 it.forEach(function(o,i){var a=.2+i*.3,p=ez(E(a,a+.5,t));o.t.style.opacity=p*(1-E(9.4,9.95,t));o.t.style.transform=&quot;translateY(&quot;+(24*(1-p))+&quot;px)&quot;;o.n.textContent=fmt(o.v*ez(E(a+.2,a+2.2,t)))});
 requestAnimationFrame(f)}
 requestAnimationFrame(f);
@@ -1353,6 +1397,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:1780px;top:960px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -1360,7 +1405,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ffd27a">Часть 6 · Итог</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Что дальше</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Программа развивается: следующие шаги уже намечены</p>
@@ -1375,7 +1420,8 @@ function cap(p,x,y,w,lab){var g=el(&quot;g&quot;,{},p);el(&quot;rect&quot;,{x:x,
 el(&quot;rect&quot;,{x:x+10,y:y+10,width:196,height:44,rx:22,fill:&quot;#ffd27a&quot;},g);var n=tx(g,x+108,y+41,24,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;),s=tx(g,x+226,y+42,27,600,&quot;#eef0f6&quot;,&quot;&quot;);
 return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k;if(i&lt;0){g.setAttribute(&quot;opacity&quot;,0);return}g.setAttribute(&quot;opacity&quot;,1);
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
-function loop(T,fn){var t0=null,last=0;function f(now){requestAnimationFrame(f);if(t0===null||now-last&gt;400)t0=now;last=now;try{fn(Math.max(0,(now-t0)/1000)%T)}catch(e){}}requestAnimationFrame(f)}
+var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;),LY=240,NX=[170,460,750,1180,1470],NOW=980;
 el(&quot;line&quot;,{x1:20,y1:LY,x2:NOW,y2:LY,stroke:&quot;#6dc4a2&quot;,&quot;stroke-width&quot;:8,&quot;stroke-linecap&quot;:&quot;round&quot;},all);
 el(&quot;line&quot;,{x1:NOW,y1:LY,x2:1640,y2:LY,stroke:&quot;#6b7698&quot;,&quot;stroke-width&quot;:6,&quot;stroke-dasharray&quot;:&quot;14 12&quot;},all);
@@ -1408,6 +1454,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 @keyframes sp{to{transform:rotate(360deg)}}
 .w{animation:wv 8s ease-out infinite;opacity:0}
 @keyframes wv{0%{transform:scale(.45);opacity:0}12%{opacity:.4}100%{transform:scale(1.3);opacity:0}}
+body.vkp *{animation-play-state:paused!important}
 .v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.45) 100%)}
 &lt;/style&gt;&lt;div class=&quot;b b1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b2&quot;&gt;&lt;/div&gt;&lt;div class=&quot;b b3&quot;&gt;&lt;/div&gt;
 &lt;svg style=&quot;left:1650px;top:150px&quot; viewBox=&quot;0 0 1600 1600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-20%&quot; y=&quot;-20%&quot; width=&quot;140%&quot; height=&quot;140%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;
@@ -1415,7 +1462,7 @@ svg{position:absolute;width:1600px;height:1600px;margin:-800px 0 0 -800px;opacit
 &lt;g class=&quot;r r1&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;420&quot; fill=&quot;none&quot; stroke=&quot;#a6a1f7&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;1700 940&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1220&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#a6a1f7&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r2&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;580&quot; fill=&quot;none&quot; stroke=&quot;#6dc4a2&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;2400 1244&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1380&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#6dc4a2&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
 &lt;g class=&quot;r r3&quot;&gt;&lt;circle cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;740&quot; fill=&quot;none&quot; stroke=&quot;#7fb8f0&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-dasharray=&quot;3200 1450&quot; filter=&quot;url(#g)&quot;/&gt;&lt;circle cx=&quot;1540&quot; cy=&quot;800&quot; r=&quot;8&quot; fill=&quot;#7fb8f0&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;
-&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;"></iframe>
+&lt;circle class=&quot;w&quot; cx=&quot;800&quot; cy=&quot;800&quot; r=&quot;600&quot; fill=&quot;none&quot; stroke=&quot;rgba(166,161,247,.7)&quot; stroke-width=&quot;2&quot;/&gt;&lt;/svg&gt;&lt;div class=&quot;v&quot;&gt;&lt;/div&gt;&lt;script&gt;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)document.body.classList.toggle(&quot;vkp&quot;,!!e.data.vkPause)})&lt;/script&gt;"></iframe>
 <iframe class="emb" style="position:absolute;left:128px;top:160px;width:760px;height:760px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}svg{display:block}&lt;/style&gt;
 &lt;svg width=&quot;760&quot; height=&quot;760&quot; viewBox=&quot;0 0 760 760&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;7&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;g id=&quot;trk&quot;&gt;&lt;/g&gt;&lt;g id=&quot;arcs&quot;&gt;&lt;/g&gt;&lt;g id=&quot;dots&quot;&gt;&lt;/g&gt;&lt;circle id=&quot;core&quot; cx=&quot;380&quot; cy=&quot;380&quot; r=&quot;10&quot; fill=&quot;#ffd27a&quot; filter=&quot;url(#g)&quot;/&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
@@ -1426,8 +1473,8 @@ R.forEach(function(r,k){el(&quot;circle&quot;,{cx:380,cy:380,r:r,fill:&quot;none
 arcs.push({e:el(&quot;circle&quot;,{cx:380,cy:380,r:r,fill:&quot;none&quot;,stroke:C[k],&quot;stroke-width&quot;:7,&quot;stroke-linecap&quot;:&quot;round&quot;,&quot;stroke-dasharray&quot;:(len*.8)+&quot; &quot;+len,filter:&quot;url(#g)&quot;},ag),len:len,r:r});
 for(var i=0;i&lt;3;i++)dots.push({k:k,o:i/3,e:el(&quot;circle&quot;,{r:8,fill:C[k],filter:&quot;url(#g)&quot;},dg)})});
 function E(a,b,t){return Math.min(1,Math.max(0,(t-a)/(b-a)))}function ez(x){return 1-Math.pow(1-x,3)}
-var t0=null,last=0;
-function f(now){if(t0===null||now-last&gt;400)t0=now;last=now;var tt=Math.max(0,(now-t0)/1000),t=tt%T;
+var el=0,last=null,vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
+function f(now){if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;var tt=Math.max(0,el/1000),t=tt%T;
 arcs.forEach(function(a,k){var p=tt&lt;4?ez(E(.2+k*.3,1.8+k*.3,tt)):1;a.e.setAttribute(&quot;stroke-dashoffset&quot;,a.len*.8*(1-p));a.e.setAttribute(&quot;transform&quot;,&quot;rotate(&quot;+(-90+(k%2?-1:1)*tt*12)+&quot; 380 380)&quot;);
 var w=Math.exp(-Math.pow((t-(2.4+k*.35))/.25,2));a.e.setAttribute(&quot;stroke-width&quot;,7+8*w)});
 dots.forEach(function(d){var an=(d.k%2?-1:1)*tt*.6+d.o*Math.PI*2;d.e.setAttribute(&quot;cx&quot;,380+R[d.k]*Math.cos(an));d.e.setAttribute(&quot;cy&quot;,380+R[d.k]*Math.sin(an));d.e.setAttribute(&quot;opacity&quot;,E(2,3,tt))});
@@ -1441,9 +1488,9 @@ requestAnimationFrame(f);
 <aside class="notes">Финал: кольца собираются и продолжают вращаться, пока идут вопросы. Можно добавить QR-код на демо-версию.</aside>
 </section>
 </div>
-</div><div id="tip">↻ Поверните телефон горизонтально — слайд будет на весь экран</div>
-<div id="nav"><button class="pv" aria-label="Назад">‹</button><span id="cnt"></span><button class="nx" aria-label="Дальше">›</button><button class="fs" aria-label="Весь экран">⛶</button><button class="nt" aria-label="Заметки">✎</button></div>
-<div id="help">← → листать · F — весь экран · N — заметки</div>
+</div><div id="pzb">⏸ Пауза · P или ▶ — продолжить</div><div id="tip">↻ Поверните телефон горизонтально — слайд будет на весь экран</div>
+<div id="nav"><button class="pv" aria-label="Назад">‹</button><span id="cnt"></span><button class="nx" aria-label="Дальше">›</button><button class="pz" aria-label="Пауза">⏸</button><button class="fs" aria-label="Весь экран">⛶</button><button class="nt" aria-label="Заметки">✎</button></div>
+<div id="help">← → листать · P — пауза · F — весь экран · N — заметки</div>
 <script>
 var S=[].slice.call(document.querySelectorAll("#stage>.sl")),i=0,st=document.getElementById("stage"),nav=document.getElementById("nav"),cnt=document.getElementById("cnt"),rot=false,
  touch=matchMedia("(pointer:coarse)").matches,hideT;
@@ -1454,7 +1501,10 @@ function lite(d){return touch?d.replace(/url\(#g\)/g,"none").replace(/filter:blu
 function mount(k){S.forEach(function(s,n){[].forEach.call(s.querySelectorAll("iframe.emb"),function(f){
  if(n==k){if(!f.getAttribute("srcdoc"))f.setAttribute("srcdoc",lite(f.getAttribute("data-doc")))}
  else if(f.getAttribute("srcdoc")){f.removeAttribute("srcdoc");f.src="about:blank"}})})}
-function go(n){i=Math.max(0,Math.min(S.length-1,n));mount(i);S.forEach(function(s,k){s.classList.toggle("on",k==i)});cnt.textContent=(i+1)+" / "+S.length;
+function pause(v){paused=v;document.body.classList.toggle("paused",v);nav.querySelector(".pz").textContent=v?"▶":"⏸";
+ [].forEach.call(S[i].querySelectorAll("iframe.emb"),function(f){try{f.contentWindow.postMessage({vkPause:v},"*")}catch(e){}})}
+var paused=false;
+function go(n){i=Math.max(0,Math.min(S.length-1,n));if(paused)pause(false);mount(i);S.forEach(function(s,k){s.classList.toggle("on",k==i)});cnt.textContent=(i+1)+" / "+S.length;
  history.replaceState(null,"","#"+(i+1));show()}
 function show(){nav.classList.remove("hide");clearTimeout(hideT);hideT=setTimeout(function(){nav.classList.add("hide")},touch?3500:2500)}
 function full(){var d=document,e=d.documentElement;if(d.fullscreenElement||d.webkitFullscreenElement){(d.exitFullscreen||d.webkitExitFullscreen).call(d);return}
@@ -1463,9 +1513,9 @@ if(!(document.documentElement.requestFullscreen||document.documentElement.webkit
 function refit(){fit();setTimeout(fit,250);setTimeout(fit,700)}
 addEventListener("resize",refit);addEventListener("orientationchange",refit);if(window.visualViewport)visualViewport.addEventListener("resize",refit);fit();
 addEventListener("keydown",function(e){var k=e.key;if(k=="ArrowRight"||k=="ArrowDown"||k=="PageDown"||k==" ")go(i+1);else if(k=="ArrowLeft"||k=="ArrowUp"||k=="PageUp")go(i-1);
- else if(k=="Home")go(0);else if(k=="End")go(S.length-1);else if(k=="f"||k=="F"||k=="а"||k=="А")full();else if(k=="n"||k=="N"||k=="т"||k=="Т")document.body.classList.toggle("notes")});
+ else if(k=="Home")go(0);else if(k=="End")go(S.length-1);else if(k=="f"||k=="F"||k=="а"||k=="А")full();else if(k=="n"||k=="N"||k=="т"||k=="Т")document.body.classList.toggle("notes");else if(k=="p"||k=="P"||k=="з"||k=="З"||k=="Pause")pause(!paused)});
 nav.addEventListener("click",function(e){e.stopPropagation();var b=e.target.closest("button");if(!b)return;
- if(b.classList.contains("pv"))go(i-1);else if(b.classList.contains("nx"))go(i+1);else if(b.classList.contains("fs"))full();else document.body.classList.toggle("notes");show()});
+ if(b.classList.contains("pv"))go(i-1);else if(b.classList.contains("nx"))go(i+1);else if(b.classList.contains("pz"))pause(!paused);else if(b.classList.contains("fs"))full();else document.body.classList.toggle("notes");show()});
 addEventListener("mousemove",function(){if(!touch)show()});
 addEventListener("click",function(e){if(touch)return;go(e.clientX<innerWidth/3?i-1:i+1)});
 var t0=null;addEventListener("touchstart",function(e){var t=e.touches[0];t0={x:t.clientX,y:t.clientY}},{passive:true});
