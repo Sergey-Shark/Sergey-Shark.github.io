@@ -119,16 +119,16 @@ n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S
 var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
 function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;),W=392;
-var G=[[&quot;Одна база&quot;,&quot;всё в одном месте,&quot;,&quot;а не в десятке файлов&quot;,&quot;#a6a1f7&quot;],[&quot;Прозрачный путь&quot;,&quot;где партия сейчас&quot;,&quot;и кто её держит&quot;,&quot;#6dc4a2&quot;],[&quot;Решения по данным&quot;,&quot;риски, дефекты,&quot;,&quot;сроки — в цифрах&quot;,&quot;#7fb8f0&quot;],[&quot;Меньше ручной работы&quot;,&quot;расчёты, документы,&quot;,&quot;ярлыки — сами&quot;,&quot;#ffd27a&quot;]];
+var G=[[&quot;Одна база&quot;,&quot;всё в одном месте,&quot;,&quot;а не в десятке файлов&quot;,&quot;#a6a1f7&quot;],[&quot;Прозрачный путь&quot;,&quot;где партия сейчас&quot;,&quot;и кто её держит&quot;,&quot;#6dc4a2&quot;],[&quot;Решения по данным&quot;,&quot;риски, дефекты,&quot;,&quot;сроки — в цифрах&quot;,&quot;#7fb8f0&quot;],[&quot;Меньше ручной работы&quot;,&quot;выборка, реестр, акты&quot;,&quot;и ярлыки — без ручного&quot;,&quot;#ffd27a&quot;,&quot;заполнения&quot;]];
 var cards=G.map(function(g0,i){var x=i*424,g=el(&quot;g&quot;,{},all),r=el(&quot;rect&quot;,{x:x,y:0,width:W,height:460,rx:22,fill:&quot;#1d2335&quot;,&quot;stroke-width&quot;:3},g);
 var ic=el(&quot;g&quot;,{transform:&quot;translate(&quot;+(x+W/2)+&quot; 150)&quot;,fill:&quot;none&quot;,stroke:g0[3],&quot;stroke-width&quot;:5,&quot;stroke-linecap&quot;:&quot;round&quot;,&quot;stroke-linejoin&quot;:&quot;round&quot;},g);
-tx(g,x+W/2,310,28,800,&quot;#eef0f6&quot;,g0[0],&quot;middle&quot;);tx(g,x+W/2,356,24,500,&quot;#a9b0c6&quot;,g0[1],&quot;middle&quot;);tx(g,x+W/2,388,24,500,&quot;#a9b0c6&quot;,g0[2],&quot;middle&quot;);return {g:g,r:r,ic:ic,c:g0[3]}});
+tx(g,x+W/2,310,28,800,&quot;#eef0f6&quot;,g0[0],&quot;middle&quot;);tx(g,x+W/2,356,24,500,&quot;#a9b0c6&quot;,g0[1],&quot;middle&quot;);tx(g,x+W/2,388,24,500,&quot;#a9b0c6&quot;,g0[2],&quot;middle&quot;);if(g0[4])tx(g,x+W/2,420,24,500,&quot;#a9b0c6&quot;,g0[4],&quot;middle&quot;);return {g:g,r:r,ic:ic,c:g0[3]}});
 var i0=cards[0].ic,files=[[-100,-50],[100,-50],[0,70]].map(function(p){return {p:p,e:el(&quot;rect&quot;,{x:-18,y:-24,width:36,height:48,rx:5,fill:&quot;#2a3150&quot;},i0)}});
 var cyl=el(&quot;g&quot;,{},i0);el(&quot;ellipse&quot;,{cx:0,cy:-34,rx:46,ry:14},cyl);el(&quot;path&quot;,{d:&quot;M-46 -34 v66 a46 14 0 0 0 92 0 v-66 M-46 0 a46 14 0 0 0 92 0&quot;},cyl);
 var i1=cards[1].ic;el(&quot;line&quot;,{x1:-120,y1:0,x2:120,y2:0,stroke:&quot;#313a54&quot;},i1);var nd=[-120,-40,40,120].map(function(x){return el(&quot;circle&quot;,{cx:x,cy:0,r:14,fill:&quot;#1d2335&quot;},i1)});var dt=el(&quot;circle&quot;,{r:10,fill:&quot;#6dc4a2&quot;,stroke:&quot;none&quot;,filter:&quot;url(#g)&quot;},i1);
 var i2=cards[2].ic,bs=[0,1,2,3].map(function(k){return el(&quot;rect&quot;,{x:-100+k*52,y:60,width:34,height:0,rx:4,fill:&quot;#7fb8f0&quot;,stroke:&quot;none&quot;,opacity:.8},i2)});var ar=el(&quot;path&quot;,{d:&quot;M-100 30 L-40 0 L10 14 L100 -60 m-30 0 l30 0 l0 30&quot;},i2),al=ar.getTotalLength();ar.setAttribute(&quot;stroke-dasharray&quot;,al+&quot; &quot;+al);
 var i3=cards[3].ic;el(&quot;circle&quot;,{cx:0,cy:0,r:62},i3);var hd=el(&quot;line&quot;,{x1:0,y1:0,x2:0,y2:-44},i3);var ck=el(&quot;path&quot;,{d:&quot;M-30 0 L-8 22 L34 -24&quot;,stroke:&quot;#73d29c&quot;,&quot;stroke-width&quot;:9},i3),cl=ck.getTotalLength();ck.setAttribute(&quot;stroke-dasharray&quot;,cl+&quot; &quot;+cl);
-var C=cap(all,0,500,1664),S=[[.2,&quot;Все данные — в одной базе, а не в десятке файлов&quot;],[2.8,&quot;Видно, где каждая партия и у кого она сейчас&quot;],[5.4,&quot;Решения — по цифрам: риски, дефекты, сроки&quot;],[8,&quot;Рутину делает программа: расчёты, документы, ярлыки&quot;]];
+var C=cap(all,0,500,1664),S=[[.2,&quot;Все данные — в одной базе, а не в десятке файлов&quot;],[2.8,&quot;Видно, где каждая партия и у кого она сейчас&quot;],[5.4,&quot;Решения — по цифрам: риски, дефекты, сроки&quot;],[8,&quot;Выборка, реестр, акты и ярлыки — без ручного заполнения&quot;]];
 loop(12,function(t){var act=-1;S.forEach(function(s,i){if(t&gt;=s[0])act=i});
 cards.forEach(function(c,i){var p=ez(E(.2+i*2.6,.8+i*2.6,t));c.g.setAttribute(&quot;opacity&quot;,p*(i==act?1:.6));c.g.setAttribute(&quot;transform&quot;,&quot;translate(0 &quot;+(30*(1-p))+&quot;)&quot;);c.r.setAttribute(&quot;stroke&quot;,i==act?c.c:&quot;#313a54&quot;)});
 var u=t-.2;files.forEach(function(f,k){var p=io(E(.6+k*.15,1.6+k*.15,u));f.e.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+f.p[0]*(1-p)+&quot; &quot;+f.p[1]*(1-p)+&quot;) scale(&quot;+(1-p*.8)+&quot;)&quot;);f.e.setAttribute(&quot;opacity&quot;,1-E(1.4,1.9,u))});cyl.setAttribute(&quot;opacity&quot;,E(1.5,2,u));
@@ -138,7 +138,7 @@ u=t-8;var sp=u&lt;0?0:360*(1-Math.exp(-u*1.2))*3;hd.setAttribute(&quot;transform
 C(t,S);all.setAttribute(&quot;opacity&quot;,1-E(11.4,11.95,t))});
 &lt;/script&gt;"></iframe>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7d86a3">Управление качеством продукции · 2</p>
-<aside class="notes">Четыре цели загораются по очереди, у каждой — живая иконка: файлы сливаются в одну базу; точка бежит по пути; столбцы и стрелка растут; часы крутятся и превращаются в галочку.</aside>
+<aside class="notes">Четыре цели загораются по очереди, у каждой — живая иконка: файлы сливаются в одну базу; точка бежит по пути; столбцы и стрелка растут; часы крутятся и превращаются в галочку: выборка, реестр, акты и ярлыки — без ручного заполнения.</aside>
 </section>
 </div>
 <div class="sl"><section id="stalo" data-transition="fade" style="background:#171d2c;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:center;gap:32px">
@@ -1490,7 +1490,7 @@ requestAnimationFrame(f);
 </div>
 </div><div id="pzb">⏸ Пауза · пробел или ▶ — продолжить</div><div id="tip">↻ Поверните телефон горизонтально — слайд будет на весь экран</div>
 <div id="nav"><button class="pv" aria-label="Назад">‹</button><span id="cnt"></span><button class="nx" aria-label="Дальше">›</button><button class="pz" aria-label="Пауза">⏸</button><button class="fs" aria-label="Весь экран">⛶</button><button class="nt" aria-label="Заметки">✎</button></div>
-<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 11.11 13:48</div>
+<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 11.11 13:52</div>
 <script>
 var S=[].slice.call(document.querySelectorAll("#stage>.sl")),i=0,st=document.getElementById("stage"),nav=document.getElementById("nav"),cnt=document.getElementById("cnt"),rot=false,
  touch=matchMedia("(pointer:coarse)").matches,hideT;
