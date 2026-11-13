@@ -1001,8 +1001,8 @@ body.vkp *{animation-play-state:paused!important}
 <p style="font-size:24px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#ff7f7a">Часть 4 · Лаборатория и Метрология</p>
 <h2 style="font-size:72px;font-weight:800;line-height:1.1">Метрология: конвейер МК</h2>
 <p style="font-size:32px;line-height:1.4;color:#a9b0c6">Приборы сами переходят по колонкам — срок поверки не пропустить</p>
-<iframe class="emb" style="position:absolute;left:128px;top:360px;width:1664px;height:570px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
-&lt;svg width=&quot;1664&quot; height=&quot;570&quot; viewBox=&quot;0 0 1664 570&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
+<iframe class="emb" style="position:absolute;left:128px;top:350px;width:1664px;height:600px" data-doc="&lt;!doctype html&gt;&lt;meta charset=&quot;utf-8&quot;&gt;&lt;style&gt;html,body{margin:0;height:100%;background:transparent;overflow:hidden}text{font-family:&quot;Segoe UI&quot;,Arial,sans-serif}&lt;/style&gt;
+&lt;svg width=&quot;1664&quot; height=&quot;600&quot; viewBox=&quot;0 0 1664 600&quot;&gt;&lt;defs&gt;&lt;filter id=&quot;g&quot; x=&quot;-50%&quot; y=&quot;-50%&quot; width=&quot;200%&quot; height=&quot;200%&quot;&gt;&lt;feGaussianBlur stdDeviation=&quot;5&quot; result=&quot;b&quot;/&gt;&lt;feMerge&gt;&lt;feMergeNode in=&quot;b&quot;/&gt;&lt;feMergeNode in=&quot;SourceGraphic&quot;/&gt;&lt;/feMerge&gt;&lt;/filter&gt;&lt;/defs&gt;&lt;g id=&quot;all&quot;&gt;&lt;/g&gt;&lt;/svg&gt;
 &lt;script&gt;
 var NS=&quot;http://www.w3.org/2000/svg&quot;;
 function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e}
@@ -1014,27 +1014,43 @@ return function(t,S){var i=-1;for(var k=0;k&lt;S.length;k++)if(t&gt;=S[k][0])i=k
 n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S.length;s.textContent=S[i][1];var q=ez(E(S[i][0],S[i][0]+.4,t));s.setAttribute(&quot;opacity&quot;,q);s.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(14*(1-q))+&quot; 0)&quot;)}}
 var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
 function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
-var all=document.getElementById(&quot;all&quot;),CW=392,GP=32,TOP=58;
+var all=document.getElementById(&quot;all&quot;),CW=392,GP=32,TOP=58,LY=TOP+72,CY0=TOP+138,ST=62,CH=52;
+// Вариант В (владелец): под заголовками — пустая дорожка; прибор поднимается в неё, едет и встаёт в колонку сверху, соседи сдвигаются вниз. Наложений нет.
 var dg=el(&quot;g&quot;,{},all);el(&quot;rect&quot;,{x:0,y:0,width:300,height:46,rx:23,fill:&quot;#1d2335&quot;,stroke:&quot;#313a54&quot;,&quot;stroke-width&quot;:2},dg);var day=tx(dg,150,32,24,700,&quot;#eef0f6&quot;,&quot;&quot;,&quot;middle&quot;);
-var C4=[[&quot;Просрочено&quot;,&quot;#ff7f7a&quot;],[&quot;Скоро МК&quot;,&quot;#ffd27a&quot;],[&quot;На МК&quot;,&quot;#7fb8f0&quot;],[&quot;В норме&quot;,&quot;#6dc4a2&quot;]],cnt=[];
-C4.forEach(function(c,i){var x=i*(CW+GP);el(&quot;rect&quot;,{x:x,y:TOP,width:CW,height:420,rx:18,fill:&quot;#12151f&quot;,stroke:&quot;#283047&quot;,&quot;stroke-width&quot;:2},all);
-el(&quot;circle&quot;,{cx:x+30,cy:TOP+40,r:10,fill:c[1]},all);tx(all,x+52,TOP+49,28,800,&quot;#eef0f6&quot;,c[0]);el(&quot;rect&quot;,{x:x+CW-82,y:TOP+18,width:62,height:44,rx:22,fill:c[1]},all);cnt.push(tx(all,x+CW-51,TOP+50,26,800,&quot;#16171b&quot;,&quot;0&quot;,&quot;middle&quot;))});
-var K=[[&quot;Толщиномер&quot;,[[0,0,0],[4.0,2,4],[7.0,3,4]]],[&quot;Штангенциркуль&quot;,[[0,3,2],[2.2,1,0],[3.6,2,2],[6.4,3,2]],1],[&quot;Микрометр&quot;,[[0,1,1],[3.8,2,3],[6.7,3,3]]],[&quot;Нутромер&quot;,[[0,2,0]]],[&quot;Угломер&quot;,[[0,2,1]]],[&quot;Манометр&quot;,[[0,3,0]]],[&quot;Твердомер&quot;,[[0,3,1]]]];
-var cards=K.map(function(k){var g=el(&quot;g&quot;,{},all);var r=el(&quot;rect&quot;,{x:0,y:0,width:CW-32,height:58,rx:14,fill:&quot;#1d2335&quot;,&quot;stroke-width&quot;:3},g);tx(g,20,38,26,700,&quot;#eef0f6&quot;,k[0]);
-var o={g:g,r:r,kf:k[1]};if(k[2]){o.pr=el(&quot;rect&quot;,{x:CW-146,y:9,width:102,height:40,rx:20},g);o.pt=tx(g,CW-95,37,22,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;)}return o});
-function pos(c,s){return [c*(CW+GP)+16,TOP+84+s*68]}
-var C=cap(all,0,500,1664),S=[[0,&quot;Дни идут — до поверки штангенциркуля всё меньше&quot;],[2.2,&quot;Осталось 14 дней — прибор сам переходит в «Скоро МК»&quot;],[3.5,&quot;Одной кнопкой — в заявку на МК: приборы едут к подрядчику&quot;],[6.3,&quot;Результат МК внесён — приборы снова «В норме» на год&quot;]];
-loop(10.5,function(t){var n=[0,0,0,0];
+var C4=[[&quot;Просрочено&quot;,&quot;#ff7f7a&quot;],[&quot;Скоро МК&quot;,&quot;#ffd27a&quot;],[&quot;На МК&quot;,&quot;#7fb8f0&quot;],[&quot;В норме&quot;,&quot;#6dc4a2&quot;]],cnt=[],X=function(i){return i*(CW+GP)};
+C4.forEach(function(c,i){var x=X(i);el(&quot;rect&quot;,{x:x,y:TOP,width:CW,height:450,rx:18,fill:&quot;#12151f&quot;,stroke:&quot;#283047&quot;,&quot;stroke-width&quot;:2},all);
+el(&quot;circle&quot;,{cx:x+30,cy:TOP+40,r:10,fill:c[1]},all);tx(all,x+52,TOP+49,28,800,&quot;#eef0f6&quot;,c[0]);el(&quot;rect&quot;,{x:x+CW-82,y:TOP+18,width:62,height:44,rx:22,fill:c[1]},all);cnt.push(tx(all,x+CW-51,TOP+50,26,800,&quot;#16171b&quot;,&quot;0&quot;,&quot;middle&quot;));
+el(&quot;line&quot;,{x1:x+16,y1:LY+CH/2,x2:x+CW-16,y2:LY+CH/2,stroke:&quot;#283047&quot;,&quot;stroke-width&quot;:2,&quot;stroke-dasharray&quot;:&quot;6 10&quot;},all)});
+var T1=2.2,T2=3.8,T3=6.6,MV=1,SH=.45;
+// события: [время, колонка, место]; переезд между колонками — по дорожке
+var K=[[&quot;Толщиномер&quot;,[[0,0,0],[T2,2,0],[T2+1,2,1],[T2+1.7,2,2],[T3+.4,2,1],[T3+1.2,2,0],[T3+1.6,3,0]]],
+[&quot;Микрометр&quot;,[[0,1,0],[T1+.3,1,1],[T2+1,1,0],[T2+1.4,2,0],[T3,3,0],[T3+1.1,3,1],[T3+1.9,3,2]]],
+[&quot;Нутромер&quot;,[[0,2,0],[T2+.3,2,1],[T2+1,2,2],[T2+1.7,2,3],[T3+.4,2,2],[T3+1.2,2,1],[T3+2,2,0]]],
+[&quot;Угломер&quot;,[[0,2,1],[T2+.3,2,2],[T2+1,2,3],[T2+1.7,2,4],[T3+.4,2,3],[T3+1.2,2,2],[T3+2,2,1]]],
+[&quot;Штангенциркуль&quot;,[[0,3,0],[T1,1,0],[T2+.7,2,0],[T2+1.7,2,1],[T3+.4,2,0],[T3+.8,3,0],[T3+1.9,3,1]],1],
+[&quot;Манометр&quot;,[[0,3,1],[T1+.2,3,0],[T3+.3,3,1],[T3+1.1,3,2],[T3+1.9,3,3]]],[&quot;Твердомер&quot;,[[0,3,2],[T1+.2,3,1],[T3+.3,3,2],[T3+1.1,3,3],[T3+1.9,3,4]]]];
+var arrow=el(&quot;path&quot;,{fill:&quot;none&quot;,stroke:&quot;#ffd27a&quot;,&quot;stroke-width&quot;:4,&quot;stroke-dasharray&quot;:&quot;12 9&quot;,&quot;stroke-linecap&quot;:&quot;round&quot;,&quot;stroke-linejoin&quot;:&quot;round&quot;},all),ahead=el(&quot;path&quot;,{fill:&quot;none&quot;,stroke:&quot;#ffd27a&quot;,&quot;stroke-width&quot;:4,&quot;stroke-linecap&quot;:&quot;round&quot;},all);
+var rq=el(&quot;g&quot;,{},all);var rqr=el(&quot;rect&quot;,{x:X(2),y:0,width:CW,height:46,rx:23,fill:&quot;#2a2418&quot;,stroke:&quot;#ffd27a&quot;,&quot;stroke-width&quot;:3},rq),rqt=tx(rq,X(2)+CW/2,32,23,800,&quot;#ffd27a&quot;,&quot;&quot;,&quot;middle&quot;);
+var cards=K.map(function(k){var g=el(&quot;g&quot;,{},all);var r=el(&quot;rect&quot;,{x:0,y:0,width:CW-32,height:CH,rx:14,fill:&quot;#1d2335&quot;,&quot;stroke-width&quot;:3},g);tx(g,20,34,22,700,&quot;#eef0f6&quot;,k[0]);
+var o={g:g,r:r,k:k};if(k[2]){o.pr=el(&quot;rect&quot;,{x:CW-132,y:9,width:92,height:34,rx:17},g);o.pt=tx(g,CW-86,33,20,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;)}return o});
+function pos(c,s){return [X(c)+16,CY0+s*ST]}
+var C=cap(all,0,530,1664),S=[[0,&quot;Дни идут — до поверки штангенциркуля всё меньше&quot;],[T1-.4,&quot;Осталось 14 дней — прибор сам переезжает в «Скоро МК»&quot;],[T2-.4,&quot;Одна заявка на МК — просроченные и «скоро» едут к подрядчику&quot;],[T3-.4,&quot;Результат МК внесён — приборы снова «В норме» на год&quot;]];
+loop(11,function(t){var n=[0,0,0,0];
 day.textContent=&quot;Сегодня: &quot;+Math.min(30,3+Math.floor(t*2.5))+&quot; ноября&quot;;
-cards.forEach(function(o){var kf=o.kf,cur=kf[0],prev=kf[0];for(var i=1;i&lt;kf.length;i++)if(t&gt;=kf[i][0]){prev=kf[i-1];cur=kf[i]}
-var p=cur===kf[0]?1:io(E(cur[0],cur[0]+.8,t)),a=pos(prev[1],prev[2]),b=pos(cur[1],cur[2]);
-var x=a[0]+(b[0]-a[0])*p,y=a[1]+(b[1]-a[1])*p-Math.sin(p*Math.PI)*(prev[1]!=cur[1]?44:0);o.g.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+x+&quot; &quot;+y+&quot;)&quot;);
-var col=p&gt;.5?cur[1]:prev[1];o.r.setAttribute(&quot;stroke&quot;,C4[col][1]);n[col]++;
-if(o.pr){var d=Math.max(14,Math.round(30-t/2.2*16)),tt=t&lt;3.6?d+&quot; дн&quot;:t&lt;6.4?&quot;на МК&quot;:&quot;365 дн&quot;;o.pt.textContent=tt;o.pr.setAttribute(&quot;fill&quot;,t&lt;2.2?&quot;#6dc4a2&quot;:t&lt;3.6?&quot;#ffd27a&quot;:t&lt;6.4?&quot;#7fb8f0&quot;:&quot;#6dc4a2&quot;)}});
-cnt.forEach(function(c,i){c.textContent=n[i]});C(t,S);all.setAttribute(&quot;opacity&quot;,E(0,.4,t)*(1-E(9.9,10.45,t)))});
+cards.forEach(function(o){var ev=o.k[1],i=0;for(var j=1;j&lt;ev.length;j++)if(t&gt;=ev[j][0])i=j;var b=ev[i],a=i?ev[i-1]:b,A=pos(a[1],a[2]),B=pos(b[1],b[2]),x,y,col,fly=false;
+if(a[1]!=b[1]){var q=E(b[0],b[0]+MV,t);fly=q&lt;1;
+ if(q&lt;.25){x=A[0];y=A[1]+(LY-A[1])*io(q/.25)}else if(q&lt;.75){x=A[0]+(B[0]-A[0])*io((q-.25)/.5);y=LY}else{x=B[0];y=LY+(B[1]-LY)*io((q-.75)/.25)}col=q&lt;.5?a[1]:b[1]}
+else{var q2=io(E(b[0],b[0]+SH,t));x=A[0];y=A[1]+(B[1]-A[1])*q2;col=b[1]}
+if(fly)all.appendChild(o.g);o.g.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+x+&quot; &quot;+y+&quot;)&quot;);n[col]++;o.r.setAttribute(&quot;stroke&quot;,C4[col][1]);o.r.setAttribute(&quot;fill&quot;,fly?&quot;#262e45&quot;:&quot;#1d2335&quot;);
+if(o.pr){var d=Math.max(14,Math.round(30-16*E(.3,T1,t))),lab=t&lt;T2+.7?d+&quot; дн&quot;:t&lt;T3+.8?&quot;на МК&quot;:&quot;365 дн&quot;;o.pt.textContent=lab;o.pr.setAttribute(&quot;fill&quot;,t&lt;T1?&quot;#6dc4a2&quot;:t&lt;T2+.7?&quot;#ffd27a&quot;:t&lt;T3+.8?&quot;#7fb8f0&quot;:&quot;#6dc4a2&quot;)}});
+var ap=E(T1-.7,T1-.3,t)*(1-E(T1+MV-.2,T1+MV+.2,t)),sx=X(3)+CW/2,ex=X(1)+CW/2,lm=LY+CH/2;
+arrow.setAttribute(&quot;d&quot;,&quot;M &quot;+sx+&quot; &quot;+(CY0-4)+&quot; L &quot;+sx+&quot; &quot;+lm+&quot; L &quot;+ex+&quot; &quot;+lm+&quot; L &quot;+ex+&quot; &quot;+(CY0-10));ahead.setAttribute(&quot;d&quot;,&quot;M &quot;+(ex-12)+&quot; &quot;+(CY0-24)+&quot; L &quot;+ex+&quot; &quot;+(CY0-8)+&quot; L &quot;+(ex+12)+&quot; &quot;+(CY0-24));
+arrow.setAttribute(&quot;opacity&quot;,ap);ahead.setAttribute(&quot;opacity&quot;,ap);
+var rp=E(T2-.5,T2-.1,t)*(1-E(10.2,10.5,t));rq.setAttribute(&quot;opacity&quot;,rp);rqt.textContent=t&lt;T3-.2?&quot;Заявка на МК № 7&quot;:&quot;Результат МК № 7 ✓&quot;;rqr.setAttribute(&quot;stroke&quot;,t&lt;T3-.2?&quot;#ffd27a&quot;:&quot;#6dc4a2&quot;);rqt.setAttribute(&quot;fill&quot;,t&lt;T3-.2?&quot;#ffd27a&quot;:&quot;#73d29c&quot;);
+cnt.forEach(function(c,i){c.textContent=n[i]});C(t,S);all.setAttribute(&quot;opacity&quot;,E(0,.4,t)*(1-E(10.4,10.95,t)))});
 &lt;/script&gt;"></iframe>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7d86a3">Управление качеством продукции · 15</p>
-<aside class="notes">Дни идут, у штангенциркуля тает срок до поверки. На 14 днях он сам переезжает в «Скоро МК», дальше — в заявку на МК вместе с просроченным толщиномером и микрометром, после результата — обратно «В норме» на год.</aside>
+<aside class="notes">Дни идут, у штангенциркуля тает срок до поверки. На 14 днях он по стрелке сам переезжает в «Скоро МК» (соседи сдвигаются), дальше — в заявку на МК вместе с просроченным толщиномером и микрометром, после результата — обратно «В норме» на год.</aside>
 </section>
 </div>
 <div class="sl"><section id="tmc" data-transition="fade" style="background:#171d2c;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
@@ -1520,7 +1536,7 @@ requestAnimationFrame(f);
 </div>
 </div><div id="pzb">⏸ Пауза · пробел или ▶ — продолжить</div><div id="tip">↻ Поверните телефон горизонтально — слайд будет на весь экран</div>
 <div id="nav"><button class="pv" aria-label="Назад">‹</button><span id="cnt"></span><button class="nx" aria-label="Дальше">›</button><button class="pz" aria-label="Пауза">⏸</button><button class="fs" aria-label="Весь экран">⛶</button><button class="nt" aria-label="Заметки">✎</button></div>
-<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 13.11 06:38</div>
+<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 13.11 07:03</div>
 <script>
 var S=[].slice.call(document.querySelectorAll("#stage>.sl")),i=0,st=document.getElementById("stage"),nav=document.getElementById("nav"),cnt=document.getElementById("cnt"),rot=false,
  touch=matchMedia("(pointer:coarse)").matches,hideT;
