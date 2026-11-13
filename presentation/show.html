@@ -1065,7 +1065,7 @@ el(&quot;path&quot;,{d:&quot;M&quot;+(PX-PL*Math.sin(1.35))+&quot; &quot;+(PY+PL
 el(&quot;rect&quot;,{x:PX+34,y:BY-22,width:30,height:44,rx:4,fill:&quot;#283047&quot;,stroke:&quot;#4a5372&quot;,&quot;stroke-width&quot;:2,&quot;stroke-dasharray&quot;:&quot;4 3&quot;},gI);tx(gI,PX+32,BY+40,13,600,&quot;#7d86a3&quot;,&quot;· опора&quot;);tx(gI,PX+24,BY+40,13,600,&quot;#a9b0c6&quot;,&quot;образец&quot;,&quot;end&quot;);
 var ism=el(&quot;g&quot;,{},gI);el(&quot;rect&quot;,{x:PX+20,y:BY-9,width:14,height:18,rx:2,fill:&quot;#cfd5e6&quot;,stroke:&quot;#eef0f6&quot;,&quot;stroke-width&quot;:1.5},ism);el(&quot;path&quot;,{d:&quot;M&quot;+(PX+34)+&quot; &quot;+(BY-3)+&quot; l-4 3 l4 3 z&quot;,fill:&quot;#283047&quot;},ism);
 var ih1=el(&quot;rect&quot;,{x:PX+20,y:BY-9,width:14,height:9,rx:2,fill:&quot;#cfd5e6&quot;},gI),ih2=el(&quot;rect&quot;,{x:PX+20,y:BY,width:14,height:9,rx:2,fill:&quot;#cfd5e6&quot;},gI),ipd=el(&quot;g&quot;,{},gI);el(&quot;line&quot;,{x1:PX,y1:PY,x2:PX,y2:PY+PL-18,stroke:&quot;#a6a1f7&quot;,&quot;stroke-width&quot;:4},ipd);
-el(&quot;path&quot;,{d:&quot;M&quot;+(PX-16)+&quot; &quot;+(PY+PL-24)+&quot; h22 l10 10 l-10 10 h-22 z&quot;,fill:&quot;#a6a1f7&quot;},ipd);el(&quot;circle&quot;,{cx:PX,cy:PY,r:6,fill:&quot;#eef0f6&quot;},gI);
+el(&quot;rect&quot;,{x:PX-18,y:PY+PL-26,width:20,height:24,rx:5,fill:&quot;#a6a1f7&quot;},ipd);el(&quot;path&quot;,{d:&quot;M&quot;+(PX+2)+&quot; &quot;+(PY+PL-24)+&quot; L&quot;+(PX+18)+&quot; &quot;+(PY+PL-14)+&quot; L&quot;+(PX+2)+&quot; &quot;+(PY+PL-4)+&quot; Z&quot;,fill:&quot;#d4d1ff&quot;},ipd);el(&quot;circle&quot;,{cx:PX,cy:PY,r:6,fill:&quot;#eef0f6&quot;},gI);
 var CZ=272,CZY=300,RZ=62;el(&quot;line&quot;,{x1:PX+30,y1:BY+12,x2:CZ-RZ+10,y2:CZY-20,stroke:&quot;#ffd27a&quot;,&quot;stroke-width&quot;:1.5,&quot;stroke-dasharray&quot;:&quot;4 4&quot;},gI);
 el(&quot;circle&quot;,{cx:CZ,cy:CZY,r:RZ,fill:&quot;#171d2c&quot;,stroke:&quot;#ffd27a&quot;,&quot;stroke-width&quot;:3},gI);tx(gI,CZ-RZ-6,CZY+RZ-4,14,700,&quot;#ffd27a&quot;,&quot;вид сверху&quot;,&quot;end&quot;);
 var zc=el(&quot;clipPath&quot;,{id:&quot;czc&quot;},gI);el(&quot;circle&quot;,{cx:CZ,cy:CZY,r:RZ-3},zc);var zg=el(&quot;g&quot;,{&quot;clip-path&quot;:&quot;url(#czc)&quot;},gI);
@@ -1677,7 +1677,7 @@ requestAnimationFrame(f);
 </div>
 </div><div id="pzb">⏸ Пауза · пробел или ▶ — продолжить</div><div id="tip">↻ Поверните телефон горизонтально — слайд будет на весь экран</div>
 <div id="nav"><button class="pv" aria-label="Назад">‹</button><span id="cnt"></span><button class="nx" aria-label="Дальше">›</button><button class="pz" aria-label="Пауза">⏸</button><button class="fs" aria-label="Весь экран">⛶</button><button class="nt" aria-label="Заметки">✎</button></div>
-<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 13.11 08:06</div>
+<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 13.11 08:09</div>
 <script>
 var S=[].slice.call(document.querySelectorAll("#stage>.sl")),i=0,st=document.getElementById("stage"),nav=document.getElementById("nav"),cnt=document.getElementById("cnt"),rot=false,
  touch=matchMedia("(pointer:coarse)").matches,hideT;
