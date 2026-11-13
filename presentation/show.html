@@ -412,12 +412,12 @@ var dp=io(E(2.6,3.4,t));doc.setAttribute(&quot;transform&quot;,&quot;translate(&
 var ready=t&gt;3.9;br.setAttribute(&quot;fill&quot;,ready?&quot;#ffd27a&quot;:&quot;#3a4462&quot;);bt.setAttribute(&quot;fill&quot;,ready?&quot;#16171b&quot;:&quot;#7d86a3&quot;);btn.setAttribute(&quot;transform&quot;,Math.abs(t-4.5)&lt;.12?&quot;translate(&quot;+LW/2+&quot; 372) scale(.96) translate(&quot;+(-LW/2)+&quot; -372)&quot;:&quot;&quot;);
 btn.setAttribute(&quot;opacity&quot;,1-E(7.6,7.9,t));res.setAttribute(&quot;opacity&quot;,E(8.6,9,t));
 var pp=io(E(4.6,5.6,t));pk.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(LW/2+(OX+OW/2-LW/2)*pp)+&quot; &quot;+(372-(372-190)*pp-Math.sin(pp*Math.PI)*120)+&quot;)&quot;);pk.setAttribute(&quot;opacity&quot;,pp&gt;0&amp;&amp;pp&lt;1?1:0);
-ot.setAttribute(&quot;opacity&quot;,E(0,.4,t));or.forEach(function(g,i){var a=i&lt;2?5.6+i*.5:7.2;g.setAttribute(&quot;opacity&quot;,E(a,a+.3,t))});
+var op=ez(E(4.5,5.1,t));ot.setAttribute(&quot;opacity&quot;,op);ot.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(40*(1-op))+&quot; 0)&quot;);or.forEach(function(g,i){var a=i&lt;2?5.6+i*.5:7.2;g.setAttribute(&quot;opacity&quot;,E(a,a+.3,t))});
 back.setAttribute(&quot;stroke-dasharray&quot;,bl+&quot; &quot;+bl);back.setAttribute(&quot;stroke-dashoffset&quot;,bl*(1-E(7.8,8.6,t)));back.setAttribute(&quot;opacity&quot;,1-E(9.6,10,t));
 C(t,S);all.setAttribute(&quot;opacity&quot;,E(0,.3,t)*(1-E(10.4,10.95,t)))});
 &lt;/script&gt;"></iframe>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7d86a3">Управление качеством продукции · 6</p>
-<aside class="notes">Снабжение заполняет задание на приём: партия, плавка, документ о качестве. Пока чего-то нет — кнопка «Передать в ОТК» серая. После передачи заявка прилетает в ОТК, сертификат сам оказывается в задании ДК. Итог — решение и акт — возвращается в список снабжения. Конструктор работает в «Перечне продукции» (предыдущий слайд — сразу после «Пути одной партии»).</aside>
+<aside class="notes">Сначала — только задание снабжения; карточка ОТК появляется, когда задание передано. Снабжение заполняет задание на приём: партия, плавка, документ о качестве. Пока чего-то нет — кнопка «Передать в ОТК» серая. После передачи заявка прилетает в ОТК, сертификат сам оказывается в задании ДК. Итог — решение и акт — возвращается в список снабжения. Конструктор работает в «Перечне продукции» (предыдущий слайд — сразу после «Пути одной партии»).</aside>
 </section>
 </div>
 <div class="sl"><section id="zayavka" data-transition="fade" style="background:#171d2c;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
@@ -1677,7 +1677,7 @@ requestAnimationFrame(f);
 </div>
 </div><div id="pzb">⏸ Пауза · пробел или ▶ — продолжить</div><div id="tip">↻ Поверните телефон горизонтально — слайд будет на весь экран</div>
 <div id="nav"><button class="pv" aria-label="Назад">‹</button><span id="cnt"></span><button class="nx" aria-label="Дальше">›</button><button class="pz" aria-label="Пауза">⏸</button><button class="fs" aria-label="Весь экран">⛶</button><button class="nt" aria-label="Заметки">✎</button></div>
-<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 13.11 11:38</div>
+<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 13.11 11:43</div>
 <script>
 var S=[].slice.call(document.querySelectorAll("#stage>.sl")),i=0,st=document.getElementById("stage"),nav=document.getElementById("nav"),cnt=document.getElementById("cnt"),rot=false,
  touch=matchMedia("(pointer:coarse)").matches,hideT;
