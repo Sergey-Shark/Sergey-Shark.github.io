@@ -1032,19 +1032,30 @@ n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S
 var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
 function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;),W=356,GX=436;
-// Владелец: сначала график испытания, потом итоги заданий → протокол → акт выполненных работ
-var H=[&quot;Испытание&quot;,&quot;Результаты&quot;,&quot;Протокол&quot;,&quot;Акт работ&quot;],F=[&quot;растяжение · образец 2&quot;,&quot;Заявка в ИЛ № 9&quot;,&quot;форма 790-1-1/ИЛ&quot;,&quot;выполненных работ&quot;],cards=[],arrows=[];
+// Владелец: в первой карточке — по очереди все три испытания заявки, каждое своим графиком; после графика загорается его строка в «Результатах»
+var H=[&quot;Испытания&quot;,&quot;Результаты&quot;,&quot;Протокол&quot;,&quot;Акт работ&quot;],F=[&quot;&quot;,&quot;Заявка в ИЛ № 9&quot;,&quot;форма 790-1-1/ИЛ&quot;,&quot;выполненных работ&quot;],cards=[],arrows=[];
 H.forEach(function(h,i){var x=i*GX,g=el(&quot;g&quot;,{},all);el(&quot;rect&quot;,{x:x,y:6,width:W,height:440,rx:20,fill:&quot;#1d2335&quot;,stroke:&quot;#313a54&quot;,&quot;stroke-width&quot;:3},g);
-el(&quot;rect&quot;,{x:x,y:6,width:W,height:8,rx:4,fill:&quot;#7fb8f0&quot;},g);tx(g,x+24,60,30,800,&quot;#7fb8f0&quot;,h);tx(g,x+24,94,24,500,&quot;#a9b0c6&quot;,F[i]);cards.push(g);
+el(&quot;rect&quot;,{x:x,y:6,width:W,height:8,rx:4,fill:&quot;#7fb8f0&quot;},g);tx(g,x+24,60,30,800,&quot;#7fb8f0&quot;,h);F[i]&amp;&amp;tx(g,x+24,94,24,500,&quot;#a9b0c6&quot;,F[i]);cards.push(g);
 if(i&lt;3)arrows.push(el(&quot;path&quot;,{d:&quot;M&quot;+(x+W+18)+&quot; 226 l40 0 m-12 -12 l12 12 l-12 12&quot;,stroke:&quot;#7fb8f0&quot;,&quot;stroke-width&quot;:4,fill:&quot;none&quot;,&quot;stroke-linecap&quot;:&quot;round&quot;},all))});
-var c1=cards[0],ox=40,oy=356,cw=290,chh=200;el(&quot;line&quot;,{x1:ox,y1:oy,x2:ox+cw,y2:oy,stroke:&quot;#6b7698&quot;,&quot;stroke-width&quot;:2},c1);el(&quot;line&quot;,{x1:ox,y1:oy,x2:ox,y2:oy-chh-10,stroke:&quot;#6b7698&quot;,&quot;stroke-width&quot;:2},c1);
-tx(c1,ox+cw,oy+24,18,600,&quot;#7d86a3&quot;,&quot;удлинение, %&quot;,&quot;end&quot;);tx(c1,ox+6,oy-chh-16,18,600,&quot;#7d86a3&quot;,&quot;σ, МПа&quot;);
-var nl=el(&quot;g&quot;,{},c1);el(&quot;line&quot;,{x1:ox,y1:oy-chh*.78,x2:ox+cw,y2:oy-chh*.78,stroke:&quot;#6dc4a2&quot;,&quot;stroke-width&quot;:2,&quot;stroke-dasharray&quot;:&quot;8 6&quot;},nl);tx(nl,ox+8,oy-chh*.78-8,18,700,&quot;#6dc4a2&quot;,&quot;σв ≥ 490&quot;);
-var dl=el(&quot;g&quot;,{},c1),dx=ox+cw*.97;el(&quot;line&quot;,{x1:dx,y1:oy,x2:dx,y2:oy-chh,stroke:&quot;#ff7f7a&quot;,&quot;stroke-width&quot;:2,&quot;stroke-dasharray&quot;:&quot;8 6&quot;},dl);tx(dl,dx-4,oy-chh+4,18,700,&quot;#ff9a96&quot;,&quot;δ5 ≥ 21&quot;,&quot;end&quot;);
+var c1=cards[0],sub=tx(c1,24,94,24,500,&quot;#a9b0c6&quot;,&quot;&quot;),ox=40,oy=356,cw=290,chh=200,axes=el(&quot;g&quot;,{},c1);
+el(&quot;line&quot;,{x1:ox,y1:oy,x2:ox+cw,y2:oy,stroke:&quot;#6b7698&quot;,&quot;stroke-width&quot;:2},axes);el(&quot;line&quot;,{x1:ox,y1:oy,x2:ox,y2:oy-chh-10,stroke:&quot;#6b7698&quot;,&quot;stroke-width&quot;:2},axes);
+// 1 · химсостав: доля от предела марки
+var gC=el(&quot;g&quot;,{},c1),cb=[];[[&quot;C&quot;,.62],[&quot;Mn&quot;,.8],[&quot;Si&quot;,.55],[&quot;S&quot;,.4],[&quot;P&quot;,.48]].forEach(function(e,i){var x=ox+18+i*54;el(&quot;rect&quot;,{x:x,y:oy-chh*.9,width:36,height:3,fill:&quot;#ff9a96&quot;},gC);
+cb.push([el(&quot;rect&quot;,{x:x,y:oy,width:36,height:0,rx:4,fill:&quot;#6dc4a2&quot;},gC),e[1]]);tx(gC,x+18,oy+24,18,700,&quot;#a9b0c6&quot;,e[0],&quot;middle&quot;)});tx(gC,ox+cw,oy-chh-2,18,700,&quot;#ff9a96&quot;,&quot;— предел марки&quot;,&quot;end&quot;);
+var tC=tx(gC,24,414,22,800,&quot;#6dc4a2&quot;,&quot;все элементы в норме ✓&quot;);
+// 2 · ударный изгиб: три образца, норма KCU ≥ 34
+var gI=el(&quot;g&quot;,{},c1),ib=[];
+[.72,.66,.76].forEach(function(v,i){var x=ox+40+i*84;ib.push([el(&quot;rect&quot;,{x:x,y:oy,width:52,height:0,rx:4,fill:&quot;#a6a1f7&quot;},gI),v]);tx(gI,x+26,oy+24,18,700,&quot;#a9b0c6&quot;,&quot;обр. &quot;+(i+1),&quot;middle&quot;)});
+el(&quot;line&quot;,{x1:ox,y1:oy-chh*.45,x2:ox+cw,y2:oy-chh*.45,stroke:&quot;#ff9a96&quot;,&quot;stroke-width&quot;:3,&quot;stroke-dasharray&quot;:&quot;8 6&quot;},gI);tx(gI,ox+cw,oy-chh-2,18,700,&quot;#ff9a96&quot;,&quot;- - норма KCU ≥ 34&quot;,&quot;end&quot;);
+var tI=tx(gI,24,414,22,800,&quot;#6dc4a2&quot;,&quot;KCU = 48–55 Дж/см² ✓&quot;);
+// 3 · растяжение: кривая, δ5 не дотягивает
+var gT=el(&quot;g&quot;,{},c1);tx(gT,ox+cw,oy+24,18,600,&quot;#7d86a3&quot;,&quot;удлинение, %&quot;,&quot;end&quot;);
+var nl=el(&quot;g&quot;,{},gT);el(&quot;line&quot;,{x1:ox,y1:oy-chh*.78,x2:ox+cw,y2:oy-chh*.78,stroke:&quot;#6dc4a2&quot;,&quot;stroke-width&quot;:2,&quot;stroke-dasharray&quot;:&quot;8 6&quot;},nl);tx(nl,ox+8,oy-chh*.78-8,18,700,&quot;#6dc4a2&quot;,&quot;σв ≥ 490&quot;);
+var dl=el(&quot;g&quot;,{},gT),dx=ox+cw*.97;el(&quot;line&quot;,{x1:dx,y1:oy,x2:dx,y2:oy-chh,stroke:&quot;#ff7f7a&quot;,&quot;stroke-width&quot;:2,&quot;stroke-dasharray&quot;:&quot;8 6&quot;},dl);tx(dl,dx-4,oy-chh+4,18,700,&quot;#ff9a96&quot;,&quot;δ5 ≥ 21&quot;,&quot;end&quot;);
 var cp=[[0,0],[.1,.62],[.14,.66],[.18,.63],[.22,.68],[.38,.84],[.55,.9],[.68,.86],[.8,.74],[.86,.66]],cd=&quot;&quot;;cp.forEach(function(p,i){cd+=(i?&quot; L&quot;:&quot;M&quot;)+(ox+p[0]*cw)+&quot; &quot;+(oy-p[1]*chh)});
-var cv=el(&quot;path&quot;,{d:cd,fill:&quot;none&quot;,stroke:&quot;#7fb8f0&quot;,&quot;stroke-width&quot;:5,&quot;stroke-linejoin&quot;:&quot;round&quot;,filter:&quot;url(#g)&quot;},c1),cl=cv.getTotalLength();cv.setAttribute(&quot;stroke-dasharray&quot;,cl+&quot; &quot;+cl);
-var dot=el(&quot;circle&quot;,{r:8,fill:&quot;#ffd27a&quot;,filter:&quot;url(#g)&quot;},c1),rd=el(&quot;g&quot;,{},c1);tx(rd,24,402,22,800,&quot;#6dc4a2&quot;,&quot;σв = 510 МПа ✓&quot;);tx(rd,24,432,22,800,&quot;#ff9a96&quot;,&quot;δ5 = 19 % — ниже нормы&quot;);
-var c0=cards[1],rs=[];[[&quot;Химсостав&quot;,&quot;норма&quot;,1],[&quot;Растяжение&quot;,&quot;НП: δ5&quot;,0],[&quot;Ударный изгиб&quot;,&quot;норма&quot;,1]].forEach(function(r,i){var g=el(&quot;g&quot;,{},c0),y=140+i*92,x=GX;
+var cv=el(&quot;path&quot;,{d:cd,fill:&quot;none&quot;,stroke:&quot;#7fb8f0&quot;,&quot;stroke-width&quot;:5,&quot;stroke-linejoin&quot;:&quot;round&quot;,filter:&quot;url(#g)&quot;},gT),cl=cv.getTotalLength();cv.setAttribute(&quot;stroke-dasharray&quot;,cl+&quot; &quot;+cl);
+var dot=el(&quot;circle&quot;,{r:8,fill:&quot;#ffd27a&quot;,filter:&quot;url(#g)&quot;},gT),rd=el(&quot;g&quot;,{},gT);tx(rd,24,402,22,800,&quot;#6dc4a2&quot;,&quot;σв = 510 МПа ✓&quot;);tx(rd,24,432,22,800,&quot;#ff9a96&quot;,&quot;δ5 = 19 % — ниже нормы&quot;);
+var c0=cards[1],rs=[];[[&quot;Химсостав&quot;,&quot;норма&quot;,1],[&quot;Ударный изгиб&quot;,&quot;норма&quot;,1],[&quot;Растяжение&quot;,&quot;НП: δ5&quot;,0]].forEach(function(r,i){var g=el(&quot;g&quot;,{},c0),y=140+i*92,x=GX;
 el(&quot;rect&quot;,{x:x+20,y:y,width:316,height:74,rx:14,fill:&quot;#171d2c&quot;,stroke:r[2]?&quot;#313a54&quot;:&quot;#ff7f7a&quot;,&quot;stroke-width&quot;:2},g);tx(g,x+38,y+45,20,700,&quot;#eef0f6&quot;,r[0]);
 var w=r[2]?86:96;el(&quot;rect&quot;,{x:x+322-w,y:y+19,width:w,height:36,rx:18,fill:r[2]?&quot;#73d29c&quot;:&quot;#ff7f7a&quot;},g);tx(g,x+322-w/2,y+43,18,800,&quot;#16171b&quot;,r[1],&quot;middle&quot;);rs.push(g)});
 var c2=cards[2],px=2*GX;for(var i=0;i&lt;6;i++)el(&quot;rect&quot;,{x:px+24,y:136+i*38,width:i%3==2?180:300,height:14,rx:7,fill:&quot;#283047&quot;},c2);
@@ -1053,18 +1064,23 @@ var pn=tx(c2,px+24,428,19,600,&quot;#a9b0c6&quot;,&quot;итог → в Реес
 var c3=cards[3],x3=3*GX,ar=[];[[&quot;Подготовка образцов&quot;,&quot;3 × 2 500 ₽ = 7 500 ₽&quot;],[&quot;Исследования&quot;,&quot;6 × 5 000 ₽ = 30 000 ₽&quot;],[&quot;НДС 22 %&quot;,&quot;8 250 ₽&quot;]].forEach(function(a,i){var g=el(&quot;g&quot;,{},c3);tx(g,x3+24,146+i*66,22,500,&quot;#a9b0c6&quot;,a[0]);tx(g,x3+24,176+i*66,22,700,&quot;#eef0f6&quot;,a[1]);ar.push(g)});
 var sum=tx(c3,x3+24,376,44,800,&quot;#ffd27a&quot;,&quot;0 ₽&quot;);tx(c3,x3+24,414,20,500,&quot;#7d86a3&quot;,&quot;итого · по прайсу&quot;);
 function fmt(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,&quot; &quot;)+&quot; ₽&quot;}
-var C=cap(all,0,484,1664),S=[[.1,&quot;Испытание: программа рисует диаграмму и сама сверяет с нормой марки&quot;],[2.4,&quot;Итоги всех заданий заявки ИЛ — по каждому виду испытаний&quot;],[4.9,&quot;Протокол формируется сам — по форме Лаборатории, с итогом&quot;],[7,&quot;Акт выполненных работ: сумма считается по прайсу&quot;]];
-loop(12,function(t){
-cards.forEach(function(c,i){var p=ez(E(.2+i*2.3,.8+i*2.3,t));c.setAttribute(&quot;opacity&quot;,p);c.setAttribute(&quot;transform&quot;,&quot;translate(0 &quot;+(30*(1-p))+&quot;)&quot;)});
-arrows.forEach(function(a,i){a.setAttribute(&quot;opacity&quot;,E(2.1+i*2.3,2.4+i*2.3,t))});
-nl.setAttribute(&quot;opacity&quot;,E(.6,.9,t));dl.setAttribute(&quot;opacity&quot;,E(.8,1.1,t));var cpg=E(.9,2.2,t);cv.setAttribute(&quot;stroke-dashoffset&quot;,cl*(1-cpg));var pt=cv.getPointAtLength(cl*cpg);dot.setAttribute(&quot;cx&quot;,pt.x);dot.setAttribute(&quot;cy&quot;,pt.y);dot.setAttribute(&quot;opacity&quot;,E(.9,1,t));
-rd.setAttribute(&quot;opacity&quot;,E(2.2,2.5,t));rs.forEach(function(g,i){g.setAttribute(&quot;opacity&quot;,E(2.9+i*.35,3.2+i*.35,t))});
-var sp=E(5.6,6,t);st.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(px+W/2)+&quot; 340) rotate(-8) scale(&quot;+(1.8-.8*ez(sp))+&quot;)&quot;);st.setAttribute(&quot;opacity&quot;,sp);pn.setAttribute(&quot;opacity&quot;,E(6.1,6.4,t));
-ar.forEach(function(g,i){g.setAttribute(&quot;opacity&quot;,E(7.3+i*.35,7.6+i*.35,t))});sum.textContent=fmt(45750*ez(E(8.4,9.9,t)));
-C(t,S);all.setAttribute(&quot;opacity&quot;,1-E(11.4,11.95,t))});
+var T1=2.2,T2=4.2,TP=6.6,TA=8.6,CA=[0,.8,TP,TA];
+var C=cap(all,0,484,1664),S=[[.1,&quot;Химсостав: все элементы в пределах марки&quot;],[T1,&quot;Ударный изгиб: работа удара выше нормы&quot;],[T2,&quot;Растяжение: прочность в норме, удлинение δ5 — ниже&quot;],[TP,&quot;Протокол формируется сам — по форме Лаборатории, с итогом&quot;],[TA,&quot;Акт выполненных работ: сумма считается по прайсу&quot;]];
+loop(13,function(t){
+cards.forEach(function(c,i){var a=CA[i]+.2,p=ez(E(a,a+.6,t));c.setAttribute(&quot;opacity&quot;,p);c.setAttribute(&quot;transform&quot;,&quot;translate(0 &quot;+(30*(1-p))+&quot;)&quot;)});
+arrows.forEach(function(a,i){var b=CA[i+1];a.setAttribute(&quot;opacity&quot;,E(b-.1,b+.2,t))});
+var k=t&lt;T1?0:t&lt;T2?1:2;sub.textContent=(k+1)+&quot; из 3 · &quot;+[&quot;химсостав&quot;,&quot;ударный изгиб&quot;,&quot;растяжение · обр. 2&quot;][k];
+gC.setAttribute(&quot;opacity&quot;,E(.3,.6,t)*(1-E(T1-.3,T1,t)));gI.setAttribute(&quot;opacity&quot;,E(T1,T1+.3,t)*(1-E(T2-.3,T2,t)));gT.setAttribute(&quot;opacity&quot;,E(T2,T2+.3,t));
+cb.forEach(function(b,i){var h=chh*b[1]*io(E(.6+i*.15,1.2+i*.15,t));b[0].setAttribute(&quot;y&quot;,oy-h);b[0].setAttribute(&quot;height&quot;,h)});tC.setAttribute(&quot;opacity&quot;,E(1.6,1.9,t));
+ib.forEach(function(b,i){var h=chh*b[1]*io(E(T1+.3+i*.2,T1+.9+i*.2,t));b[0].setAttribute(&quot;y&quot;,oy-h);b[0].setAttribute(&quot;height&quot;,h)});tI.setAttribute(&quot;opacity&quot;,E(T1+1.4,T1+1.7,t));
+nl.setAttribute(&quot;opacity&quot;,E(T2+.2,T2+.4,t));dl.setAttribute(&quot;opacity&quot;,E(T2+.3,T2+.5,t));var cpg=E(T2+.4,T2+1.7,t);cv.setAttribute(&quot;stroke-dashoffset&quot;,cl*(1-cpg));var pt=cv.getPointAtLength(cl*cpg);dot.setAttribute(&quot;cx&quot;,pt.x);dot.setAttribute(&quot;cy&quot;,pt.y);dot.setAttribute(&quot;opacity&quot;,E(T2+.4,T2+.5,t));
+rd.setAttribute(&quot;opacity&quot;,E(T2+1.7,T2+2,t));[T1-.3,T2-.3,T2+1.9].forEach(function(a,i){rs[i].setAttribute(&quot;opacity&quot;,E(a,a+.3,t))});
+var sp=E(TP+.5,TP+.9,t);st.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(px+W/2)+&quot; 340) rotate(-8) scale(&quot;+(1.8-.8*ez(sp))+&quot;)&quot;);st.setAttribute(&quot;opacity&quot;,sp);pn.setAttribute(&quot;opacity&quot;,E(TP+1,TP+1.3,t));
+ar.forEach(function(g,i){g.setAttribute(&quot;opacity&quot;,E(TA+.4+i*.35,TA+.7+i*.35,t))});sum.textContent=fmt(45750*ez(E(TA+1.4,TA+2.8,t)));
+C(t,S);all.setAttribute(&quot;opacity&quot;,1-E(12.4,12.95,t))});
 &lt;/script&gt;"></iframe>
 <p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#7d86a3">Управление качеством продукции · 15</p>
-<aside class="notes">Продолжение предыдущего слайда. Сначала испытание: рисуется диаграмма растяжения, σв в норме, а удлинение δ5 не дотягивает до нормы. Затем итоги: все задания заявки ИЛ выполнены — по растяжению несоответствие (δ5). Протокол по форме 790-1-1/ИЛ формируется сам, с итогом «Не соответствует» → в Реестр, можно оформить акт НП. Акт выполненных работ: сумма считается по прайсу. Цены — пример, в программе — из действующего прайса.</aside>
+<aside class="notes">Продолжение предыдущего слайда. В первой карточке по очереди — все три испытания заявки, каждое своим графиком: химсостав (элементы в пределах марки), ударный изгиб (работа удара выше нормы), растяжение (σв в норме, удлинение δ5 ниже). После каждого графика загорается его строка в «Результатах». Затем: все задания заявки ИЛ выполнены — по растяжению несоответствие (δ5). Протокол по форме 790-1-1/ИЛ формируется сам, с итогом «Не соответствует» → в Реестр, можно оформить акт НП. Акт выполненных работ: сумма считается по прайсу. Цены — пример, в программе — из действующего прайса.</aside>
 </section>
 </div>
 <div class="sl"><section id="metro" data-transition="fade" style="background:#171d2c;color:#eef0f6;font-family:'Manrope', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
@@ -1627,7 +1643,7 @@ requestAnimationFrame(f);
 </div>
 </div><div id="pzb">⏸ Пауза · пробел или ▶ — продолжить</div><div id="tip">↻ Поверните телефон горизонтально — слайд будет на весь экран</div>
 <div id="nav"><button class="pv" aria-label="Назад">‹</button><span id="cnt"></span><button class="nx" aria-label="Дальше">›</button><button class="pz" aria-label="Пауза">⏸</button><button class="fs" aria-label="Весь экран">⛶</button><button class="nt" aria-label="Заметки">✎</button></div>
-<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 13.11 07:20</div>
+<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 13.11 07:23</div>
 <script>
 var S=[].slice.call(document.querySelectorAll("#stage>.sl")),i=0,st=document.getElementById("stage"),nav=document.getElementById("nav"),cnt=document.getElementById("cnt"),rot=false,
  touch=matchMedia("(pointer:coarse)").matches,hideT;
