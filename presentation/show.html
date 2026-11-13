@@ -1270,22 +1270,24 @@ n.textContent=(lab||&quot;Шаг&quot;)+&quot; &quot;+(i+1)+&quot; из &quot;+S
 var vkPaused=false;addEventListener(&quot;message&quot;,function(e){if(e.data&amp;&amp;&quot;vkPause&quot; in e.data)vkPaused=!!e.data.vkPause});
 function loop(T,fn){var el=0,last=null;function f(now){requestAnimationFrame(f);if(last===null||now-last&gt;400)el=0;else if(!vkPaused)el+=now-last;last=now;try{fn(Math.max(0,el/1000)%T)}catch(e){}}requestAnimationFrame(f)}
 var all=document.getElementById(&quot;all&quot;);
-var S=[[&quot;Поставщик А&quot;,4],[&quot;Поставщик Б&quot;,8],[&quot;Поставщик В&quot;,14],[&quot;Поставщик Г&quot;,25],[&quot;Поставщик Д&quot;,6],[&quot;Поставщик Е&quot;,17]];
+// красные клетки — партии с НП; процент = красных / 12 (точно, владелец)
+var S=[[&quot;Поставщик А&quot;,[]],[&quot;Поставщик Б&quot;,[7]],[&quot;Поставщик В&quot;,[3,9]],[&quot;Поставщик Г&quot;,[1,4,8,10]],[&quot;Поставщик Д&quot;,[4]],[&quot;Поставщик Е&quot;,[2,8]]];
+S.forEach(function(s){s.push(Math.round(s[1].length/12*100))});
 var M=[&quot;Д&quot;,&quot;Я&quot;,&quot;Ф&quot;,&quot;М&quot;,&quot;А&quot;,&quot;М&quot;,&quot;И&quot;,&quot;И&quot;,&quot;А&quot;,&quot;С&quot;,&quot;О&quot;,&quot;Н&quot;],RY=function(i){return 52+i*70};
 function lv(v){return v&gt;20?[&quot;высокий&quot;,&quot;#ff7f7a&quot;]:v&gt;10?[&quot;средний&quot;,&quot;#f0a050&quot;]:[&quot;низкий&quot;,&quot;#6dc4a2&quot;]}
 var seed=5;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}
 M.forEach(function(m,j){tx(all,604+j*48,34,24,600,&quot;#7d86a3&quot;,m,&quot;middle&quot;)});
 var rows=S.map(function(s,i){var y=RY(i),g=el(&quot;g&quot;,{},all);var fr=el(&quot;rect&quot;,{x:0,y:y,width:540,height:58,rx:14,fill:&quot;#1d2335&quot;,stroke:&quot;#313a54&quot;,&quot;stroke-width&quot;:2},g);
-tx(g,20,y+38,26,700,&quot;#eef0f6&quot;,s[0]);el(&quot;rect&quot;,{x:230,y:y+24,width:150,height:10,rx:5,fill:&quot;#283047&quot;},g);var bar=el(&quot;rect&quot;,{x:230,y:y+24,width:0,height:10,rx:5},g);
-var pv=tx(g,394,y+38,24,700,&quot;#eef0f6&quot;,&quot;0 %&quot;),pl=el(&quot;rect&quot;,{x:448,y:y+10,width:80,height:38,rx:19},g),pt=tx(g,488,y+36,20,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;);
-var cells=[],nb=Math.round(12*s[1]/100*1.15);for(var j=0;j&lt;12;j++){var bad=false;cells.push({r:el(&quot;rect&quot;,{x:584+j*48,y:y+9,width:40,height:40,rx:8,fill:&quot;#283047&quot;},all),bad:bad})}
-for(var q=0;q&lt;nb;q++)cells[Math.floor(rnd()*12)].bad=true;return {s:s,fr:fr,bar:bar,pv:pv,pl:pl,pt:pt,cells:cells}});
+tx(g,20,y+38,26,700,&quot;#eef0f6&quot;,s[0]);el(&quot;rect&quot;,{x:220,y:y+24,width:120,height:10,rx:5,fill:&quot;#283047&quot;},g);var bar=el(&quot;rect&quot;,{x:220,y:y+24,width:0,height:10,rx:5},g);
+var pv=tx(g,414,y+38,24,700,&quot;#eef0f6&quot;,&quot;0 %&quot;,&quot;end&quot;),pl=el(&quot;rect&quot;,{x:426,y:y+10,width:104,height:38,rx:19},g),pt=tx(g,478,y+35,19,800,&quot;#16171b&quot;,&quot;&quot;,&quot;middle&quot;);
+var cells=[];for(var j=0;j&lt;12;j++){var bad=s[1].indexOf(j)&gt;=0;cells.push({r:el(&quot;rect&quot;,{x:584+j*48,y:y+9,width:40,height:40,rx:8,fill:&quot;#283047&quot;},all),bad:bad})}
+return {s:s,fr:fr,bar:bar,pv:pv,pl:pl,pt:pt,cells:cells}});
 var cd=el(&quot;g&quot;,{},all);el(&quot;rect&quot;,{x:1210,y:44,width:454,height:410,rx:20,fill:&quot;#2a2418&quot;,stroke:&quot;#ffd27a&quot;,&quot;stroke-width&quot;:3,filter:&quot;url(#g)&quot;},cd);tx(cd,1236,96,28,800,&quot;#ffd27a&quot;,&quot;Что сделать сейчас&quot;);
 var L=[[&quot;Поставщик Г — высокий риск&quot;,&quot;#ff9a96&quot;,700],[&quot;НП в 2 из 5 последних партий&quot;,&quot;#eef0f6&quot;,500],[&quot;ВИК по позиции: 10 % → 20 %&quot;,&quot;#ffd27a&quot;,700],[&quot;Рекомендация: галочка «ИЛ»&quot;,&quot;#eef0f6&quot;,500],[&quot;Решение принимает ОТК&quot;,&quot;#a9b0c6&quot;,500]],lt=[];
 L.forEach(function(l,i){lt.push(tx(cd,1236,156+i*60,24,l[2],l[1],l[0]))});
-var C=cap(all,0,500,1664),SC=[[0,&quot;Клетка — партия за месяц: зелёная — без замечаний, красная — с несоответствием&quot;],[5,&quot;Доля партий с несоответствием даёт уровень: до 10 % · до 20 % · выше&quot;],[6.4,&quot;Поставщик Г — больше 20 % партий с несоответствием: высокий риск&quot;],[8.2,&quot;Программа подсказывает, что сделать, — решение принимает ОТК&quot;]];
+var C=cap(all,0,500,1664),SC=[[0,&quot;Клетка — партия за месяц: зелёная — без замечаний, красная — с несоответствием&quot;],[5,&quot;Красных клеток из 12 — это и есть процент: до 10 % — низкий, до 20 % — средний, выше — высокий&quot;],[6.4,&quot;Поставщик Г — 4 партии из 12 с несоответствием (33 %): высокий риск&quot;],[8.2,&quot;Программа подсказывает, что сделать, — решение принимает ОТК&quot;]];
 loop(13,function(t){
-rows.forEach(function(o,i){var v=o.s[1]*ez(E(.4,5,t)),L=lv(v);o.bar.setAttribute(&quot;width&quot;,150*Math.min(1,v/30));o.bar.setAttribute(&quot;fill&quot;,L[1]);
+rows.forEach(function(o,i){var v=o.s[2]*ez(E(.4,5,t)),L=lv(v);o.bar.setAttribute(&quot;width&quot;,120*Math.min(1,v/40));o.bar.setAttribute(&quot;fill&quot;,L[1]);
 o.pv.textContent=Math.round(v)+&quot; %&quot;;o.pl.setAttribute(&quot;fill&quot;,L[1]);o.pt.textContent=L[0];
 var hl=i==3&amp;&amp;t&gt;6.4,pu=hl?.6+.4*Math.abs(Math.sin(t*4)):1;
 o.cells.forEach(function(c,j){var on=E(.4+j*.38,.6+j*.38,t)&gt;.5;c.r.setAttribute(&quot;fill&quot;,on?(c.bad?&quot;#ff7f7a&quot;:&quot;#3f7f68&quot;):&quot;#283047&quot;);c.r.setAttribute(&quot;opacity&quot;,on&amp;&amp;c.bad&amp;&amp;hl?pu:1)});
@@ -1518,7 +1520,7 @@ requestAnimationFrame(f);
 </div>
 </div><div id="pzb">⏸ Пауза · пробел или ▶ — продолжить</div><div id="tip">↻ Поверните телефон горизонтально — слайд будет на весь экран</div>
 <div id="nav"><button class="pv" aria-label="Назад">‹</button><span id="cnt"></span><button class="nx" aria-label="Дальше">›</button><button class="pz" aria-label="Пауза">⏸</button><button class="fs" aria-label="Весь экран">⛶</button><button class="nt" aria-label="Заметки">✎</button></div>
-<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 12.11 09:26</div>
+<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 13.11 06:32</div>
 <script>
 var S=[].slice.call(document.querySelectorAll("#stage>.sl")),i=0,st=document.getElementById("stage"),nav=document.getElementById("nav"),cnt=document.getElementById("cnt"),rot=false,
  touch=matchMedia("(pointer:coarse)").matches,hideT;
