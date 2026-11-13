@@ -1072,14 +1072,16 @@ var zc=el(&quot;clipPath&quot;,{id:&quot;czc&quot;},gI);el(&quot;circle&quot;,{c
 el(&quot;rect&quot;,{x:CZ-56,y:CZY-24,width:16,height:14,fill:&quot;#283047&quot;},zg);el(&quot;rect&quot;,{x:CZ+40,y:CZY-24,width:16,height:14,fill:&quot;#283047&quot;},zg);
 var ZL=el(&quot;path&quot;,{fill:&quot;#a9b0c6&quot;},zg),ZR=el(&quot;path&quot;,{fill:&quot;#a9b0c6&quot;},zg),zk=el(&quot;path&quot;,{d:&quot;M-9 24 L0 0 L9 24 Z&quot;,fill:&quot;#a6a1f7&quot;},zg);
 var ival=tx(gI,24,394,22,800,&quot;#a6a1f7&quot;,&quot;&quot;),tI=tx(gI,24,426,20,800,&quot;#6dc4a2&quot;,&quot;KCU ≥ 34 · 3 из 3 в норме ✓&quot;);
-function impact(t){var q=Math.max(0,t-T1-.2),k=Math.min(2,Math.floor(q/ST)),u=(q-k*ST)/ST*2,a0=1.35,a1=a0*(.3+KV[k]/260);
-var ang=u&lt;.6?-a0+a0*io(u/.6):u&lt;1.2?a1*Math.sin((u-.6)/.6*Math.PI/2):u&lt;1.6?a1:(k==2?a1*(1-E(1.6,2,u)):a1-(a1+a0)*io(E(1.6,2,u)));
-ipd.setAttribute(&quot;transform&quot;,&quot;rotate(&quot;+(ang*57.3)+&quot; &quot;+PX+&quot; &quot;+PY+&quot;)&quot;);var br=u&gt;=.6&amp;&amp;u&lt;1.9,dd=E(.6,1,u);ism.setAttribute(&quot;opacity&quot;,br?0:1);ih1.setAttribute(&quot;opacity&quot;,br?1-E(1.5,1.8,u):0);ih2.setAttribute(&quot;opacity&quot;,br?1-E(1.5,1.8,u):0);
+function impact(t){var q=Math.max(0,t-T1-.2),k=Math.min(2,Math.floor(q/ST)),u=(q-k*ST)/ST*2,a0=1.35,a1=a0*(.3+KV[k]/260),H=.85;
+// u: 0–.3 маятник поднят, образец уже стоит на опоре; .3–.85 падение; удар; .85–1.35 взлёт; 1.35–1.6 держит; 1.6–1.75 убирается; 1.8–2 поднят заново, новый образец установлен
+var ang=u&lt;.3?-a0:u&lt;H?-a0+a0*io((u-.3)/.55):u&lt;1.35?a1*Math.sin((u-H)/.5*Math.PI/2):a1;var back=k&lt;2&amp;&amp;u&gt;=1.75;if(back)ang=-a0;
+ipd.setAttribute(&quot;transform&quot;,&quot;rotate(&quot;+(-ang*57.3)+&quot; &quot;+PX+&quot; &quot;+PY+&quot;)&quot;);ipd.setAttribute(&quot;opacity&quot;,k&lt;2?(u&lt;1.6?1:u&lt;1.75?1-E(1.6,1.72,u):E(1.8,1.95,u)):1);
+var br=u&gt;=H&amp;&amp;u&lt;1.75,dd=E(H,H+.4,u);ism.setAttribute(&quot;opacity&quot;,br?0:(u&gt;=1.75?(k&lt;2?E(1.75,1.9,u):0):1));ih1.setAttribute(&quot;opacity&quot;,br?1-E(1.45,1.7,u):0);ih2.setAttribute(&quot;opacity&quot;,br?1-E(1.45,1.7,u):0);
 ih1.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(50*dd)+&quot; &quot;+(-46*dd)+&quot;) rotate(&quot;+(200*dd)+&quot; &quot;+(PX+27)+&quot; &quot;+BY+&quot;)&quot;);ih2.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(60*dd)+&quot; &quot;+(26*dd)+&quot;) rotate(&quot;+(-160*dd)+&quot; &quot;+(PX+27)+&quot; &quot;+BY+&quot;)&quot;);
-var app=io(E(0,.6,u)),bend=E(.6,.9,u),fly=E(.9,1.4,u),b=16*bend,x0=CZ-54,x1=CZ+54;zk.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+CZ+&quot; &quot;+(CZY+60-50*app-18*bend-40*fly)+&quot;)&quot;);zk.setAttribute(&quot;opacity&quot;,1-E(1.3,1.6,u));
+var app=io(E(.3,H,u)),bend=br?E(H,H+.3,u):0,fly=br?E(H+.3,H+.8,u):0,b=16*bend,x0=CZ-54,x1=CZ+54;zk.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+CZ+&quot; &quot;+(CZY+60-50*app-18*bend-40*fly)+&quot;)&quot;);zk.setAttribute(&quot;opacity&quot;,br?1-E(1.3,1.5,u):(u&gt;=1.75?0:1));
 ZL.setAttribute(&quot;d&quot;,&quot;M&quot;+x0+&quot; &quot;+(CZY-5)+&quot; L&quot;+CZ+&quot; &quot;+(CZY-5-b)+&quot; L&quot;+CZ+&quot; &quot;+(CZY+5-b)+&quot; L&quot;+x0+&quot; &quot;+(CZY+5)+&quot; Z&quot;);ZR.setAttribute(&quot;d&quot;,&quot;M&quot;+x1+&quot; &quot;+(CZY-5)+&quot; L&quot;+CZ+&quot; &quot;+(CZY-5-b)+&quot; L&quot;+CZ+&quot; &quot;+(CZY+5-b)+&quot; L&quot;+x1+&quot; &quot;+(CZY+5)+&quot; Z&quot;);
-ZL.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(-fly*24)+&quot; &quot;+(-fly*40)+&quot;)&quot;);ZR.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(fly*24)+&quot; &quot;+(-fly*40)+&quot;)&quot;);var g=k==2&amp;&amp;u&gt;1.6?0:1-E(1.6,1.9,u);ZL.setAttribute(&quot;opacity&quot;,g);ZR.setAttribute(&quot;opacity&quot;,g);
-ival.textContent=&quot;обр. &quot;+(k+1)+&quot;: KCU = &quot;+(u&gt;1.2?KV[k]:&quot;…&quot;)+&quot; Дж/см²&quot;;tI.setAttribute(&quot;opacity&quot;,E(T2-.6,T2-.3,t))}
+ZL.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(-fly*24)+&quot; &quot;+(-fly*40)+&quot;)&quot;);ZR.setAttribute(&quot;transform&quot;,&quot;translate(&quot;+(fly*24)+&quot; &quot;+(-fly*40)+&quot;)&quot;);var g=br?1-E(1.45,1.7,u):(u&gt;=1.75?(k&lt;2?E(1.75,1.9,u):0):1);ZL.setAttribute(&quot;opacity&quot;,g);ZR.setAttribute(&quot;opacity&quot;,g);
+var kk=u&gt;=1.75&amp;&amp;k&lt;2?k+1:k;ival.textContent=&quot;обр. &quot;+(kk+1)+&quot;: KCU = &quot;+(u&gt;1.2&amp;&amp;u&lt;1.75?KV[k]:&quot;…&quot;)+&quot; Дж/см²&quot;;tI.setAttribute(&quot;opacity&quot;,E(T2-.6,T2-.3,t))}
 // 3 · растяжение: кривая, δ5 не дотягивает
 var gT=el(&quot;g&quot;,{},c1);tx(gT,ox+cw,oy+24,18,600,&quot;#7d86a3&quot;,&quot;удлинение, %&quot;,&quot;end&quot;);
 var nl=el(&quot;g&quot;,{},gT);el(&quot;line&quot;,{x1:ox,y1:oy-chh*.78,x2:ox+cw,y2:oy-chh*.78,stroke:&quot;#6dc4a2&quot;,&quot;stroke-width&quot;:2,&quot;stroke-dasharray&quot;:&quot;8 6&quot;},nl);tx(nl,ox+8,oy-chh*.78-8,18,700,&quot;#6dc4a2&quot;,&quot;σв ≥ 490&quot;);
@@ -1102,7 +1104,7 @@ loop(18.6,function(t){
 cards.forEach(function(c,i){var a=CA[i]+.2,p=ez(E(a,a+.6,t));c.setAttribute(&quot;opacity&quot;,p);c.setAttribute(&quot;transform&quot;,&quot;translate(0 &quot;+(30*(1-p))+&quot;)&quot;)});
 arrows.forEach(function(a,i){var b=CA[i+1];a.setAttribute(&quot;opacity&quot;,E(b-.1,b+.2,t))});
 var k=t&lt;T1?0:t&lt;T2?1:2;sub.textContent=(k+1)+&quot; из 3 · &quot;+[&quot;химсостав · ОЭС&quot;,&quot;ударный изгиб&quot;,&quot;растяжение · обр. 2&quot;][k];
-gC.setAttribute(&quot;opacity&quot;,E(.3,.6,t)*(1-E(T1-.3,T1,t)));axes.setAttribute(&quot;opacity&quot;,E(T2,T2+.3,t));gI.setAttribute(&quot;opacity&quot;,E(T1,T1+.3,t)*(1-E(T2-.3,T2,t)));if(t&gt;T1&amp;&amp;t&lt;T2)impact(t);gT.setAttribute(&quot;opacity&quot;,E(T2,T2+.3,t));
+gC.setAttribute(&quot;opacity&quot;,E(.3,.6,t)*(1-E(T1-.3,T1,t)));axes.setAttribute(&quot;opacity&quot;,E(T2,T2+.3,t));gI.setAttribute(&quot;opacity&quot;,E(T1,T1+.3,t)*(1-E(T2-.3,T2,t)));if(t&lt;T2)impact(Math.max(t,T1));gT.setAttribute(&quot;opacity&quot;,E(T2,T2+.3,t));
 if(t&lt;T1)oes(t);
 
 nl.setAttribute(&quot;opacity&quot;,E(T2+.2,T2+.4,t));dl.setAttribute(&quot;opacity&quot;,E(T2+.3,T2+.5,t));var cpg=E(T2+.4,T2+1.7,t);cv.setAttribute(&quot;stroke-dashoffset&quot;,cl*(1-cpg));var pt=cv.getPointAtLength(cl*cpg);dot.setAttribute(&quot;cx&quot;,pt.x);dot.setAttribute(&quot;cy&quot;,pt.y);dot.setAttribute(&quot;opacity&quot;,E(T2+.4,T2+.5,t));
@@ -1675,7 +1677,7 @@ requestAnimationFrame(f);
 </div>
 </div><div id="pzb">⏸ Пауза · пробел или ▶ — продолжить</div><div id="tip">↻ Поверните телефон горизонтально — слайд будет на весь экран</div>
 <div id="nav"><button class="pv" aria-label="Назад">‹</button><span id="cnt"></span><button class="nx" aria-label="Дальше">›</button><button class="pz" aria-label="Пауза">⏸</button><button class="fs" aria-label="Весь экран">⛶</button><button class="nt" aria-label="Заметки">✎</button></div>
-<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 13.11 08:03</div>
+<div id="help">← → листать · пробел — пауза · F — весь экран · N — заметки · версия 13.11 08:06</div>
 <script>
 var S=[].slice.call(document.querySelectorAll("#stage>.sl")),i=0,st=document.getElementById("stage"),nav=document.getElementById("nav"),cnt=document.getElementById("cnt"),rot=false,
  touch=matchMedia("(pointer:coarse)").matches,hideT;
